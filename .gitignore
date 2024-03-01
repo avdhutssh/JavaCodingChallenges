@@ -5,6 +5,6 @@ temp/
 .idea/
 misc.xml
 modules.xml
-test-output/
-target/
+test-output/*
+target/*
 .settings
