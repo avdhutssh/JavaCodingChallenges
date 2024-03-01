@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-03-01T12:34:58 IST" name="Default suite" finished-at="2024-03-01T12:35:09 IST" duration-ms="10458">
+    <groups>
+    </groups>
+    <test started-at="2024-03-01T12:34:58 IST" name="Default test" finished-at="2024-03-01T12:35:09 IST" duration-ms="10458">
+      <class name="Selenium._08_ClickOnAnimatedButton">
+        <test-method signature="_2_clickOnAnimatedBtnUsinnExplicitWait()[pri:0, instance:Selenium._08_ClickOnAnimatedButton@729d991e]" started-at="2024-03-01T12:34:58 IST" name="_2_clickOnAnimatedBtnUsinnExplicitWait" finished-at="2024-03-01T12:35:09 IST" duration-ms="10355" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- _2_clickOnAnimatedBtnUsinnExplicitWait -->
+      </class> <!-- Selenium._08_ClickOnAnimatedButton -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

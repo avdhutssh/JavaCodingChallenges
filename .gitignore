@@ -1,0 +1,10 @@
+output/
+venv/
+temp/
+.rpa/
+.idea/
+misc.xml
+modules.xml
+test-output/
+target/
+.settings
