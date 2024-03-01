@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class _05_BrowserAuthPopup {
+public class _05_BrowserAuthPopupHandle {
 
 	@Test
 	public void _1_appedingCredsInUrl() {
