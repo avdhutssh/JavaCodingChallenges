@@ -1,9 +1,11 @@
 package Java;
 
 public class demo {
-	
-	demo(String str) {
-		System.out.println(str);
+
+	public static void main(String[] args) {
+		for (;;) {
+			System.out.println("In loop");
+		}
 	}
 
 }
