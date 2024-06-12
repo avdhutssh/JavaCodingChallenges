@@ -52,6 +52,8 @@ public class _01_Find_Pair {
 	}
 
 	private static boolean _03_Using_HashMap(int[] arr, int k) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
 		HashMap<Integer, Boolean> present = new HashMap<Integer, Boolean>();
 		for (int number : arr) {
 			if (present.containsKey(k - number))
