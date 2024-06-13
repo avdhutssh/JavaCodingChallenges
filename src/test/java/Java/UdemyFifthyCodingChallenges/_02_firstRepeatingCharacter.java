@@ -29,7 +29,8 @@ public class _02_firstRepeatingCharacter {
 	}
 
 	private static char _01_Using_HashSet(String str) {
-
+		// Time complexity: O(n)
+		// Space complexity: O(n)
 		HashSet<Character> seen = new HashSet<Character>();
 		for (char c : str.toCharArray()) {
 			if (seen.contains(c))
