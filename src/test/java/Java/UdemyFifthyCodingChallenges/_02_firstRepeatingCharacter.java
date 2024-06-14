@@ -41,7 +41,7 @@ public class _02_firstRepeatingCharacter {
 
 	}
 
-	private static char _02_BrureForceApproach(String str) {
+	private static char _02_BruteForceApproach(String str) {
 		// Time complexity: O(n^2)
 		// Space complexity: O(1)
 		for (int i = 0; i < str.length(); i++) {
