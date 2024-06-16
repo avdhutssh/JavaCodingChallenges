@@ -17,6 +17,8 @@ public class _004_HT_groupAnagrams {
 	}
 
 	private static List<List<String>> _01_Using_Hashmap(String[] strings) {
+		// Time complexity: O(NKlogK)
+		// Space complexity: O(NK)
 		HashMap<String, List<String>> anagramGroup = new HashMap<String, List<String>>();
 		for (String str : strings) {
 			char[] chars = str.toCharArray();
