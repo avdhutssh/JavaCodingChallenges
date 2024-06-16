@@ -53,7 +53,7 @@ public class _005_HT_indicesOfTwoNumbersThatGivesTarget {
 			}
 			hm.put(arr[i], i);
 		}
-		return new int[0];
+		return new int[] {};
 	}
 
 }
