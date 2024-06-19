@@ -43,16 +43,29 @@ public class _09_reverseLinkedList {
 		// Space complexity: O(1)
 		Node temp = list.head;
 		Node before = null;
-		Node after = null;
+		Node after = temp.next;
 		while (temp != null) {
 			after = temp.next;
 			temp.next = before;
 			before = temp;
 			temp = after;
 		}
-		list.head = before; // Update head to the new front of the list
+		list.head = before;
 	}
 
+	static Node reverseNodes(Node node){
+		  if(node == null || node.next == null)
+		    return node;
+		  Node reversed = reverseNodes(node.next);
+		  node.next.next = node;
+		  node.next = null;
+		  return reversed;
+		}
+
+		static void _02_By_Dealing_With_Links_Recursively(LinkedList list){
+		  list.head = reverseNodes(list.head);
+		}
+		
 	public static void main(String[] args) {
 		LinkedList list1 = new LinkedList(new Node(5, new Node(3, new Node(6, new Node(4, new Node(7, null))))));
 		LinkedList list2 = new LinkedList(new Node(1, new Node(2, new Node(3, null))));
@@ -68,6 +81,19 @@ public class _09_reverseLinkedList {
 		System.out.println("Original List 2:");
 		list2.printList();
 		exercise._01_By_Dealing_With_Links_Iteratively(list2);
+		System.out.println("Reversed List 2:");
+		list2.printList();
+		System.out.println("--------------------------------");
+		
+		System.out.println("Original List 1:");
+		list1.printList();
+		exercise._02_By_Dealing_With_Links_Recursively(list1);
+		System.out.println("Reversed List 1:");
+		list1.printList();
+
+		System.out.println("Original List 2:");
+		list2.printList();
+		exercise._02_By_Dealing_With_Links_Recursively(list2);
 		System.out.println("Reversed List 2:");
 		list2.printList();
 	}
