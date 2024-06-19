@@ -2,6 +2,7 @@ package Java.UdemyFifthyCodingChallenges;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Set;
 
 public class _08_longestSubstringWithoutRepeating {
 
@@ -19,6 +20,9 @@ public class _08_longestSubstringWithoutRepeating {
 		System.out.println(_01_Using_HashMap(str2));
 		System.out.println(_01_Using_HashMap(str3));
 
+		System.out.println(lengthOfLongestSubstring(str1));
+		System.out.println(lengthOfLongestSubstring(str2));
+		System.out.println(lengthOfLongestSubstring(str3));
 	}
 
 	private static int _01_BruteForceApproach(String str) {
@@ -38,6 +42,28 @@ public class _08_longestSubstringWithoutRepeating {
 
 	}
 
+	public static int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        int maxLength = 0;
+        Set<Character> charSet = new HashSet<>();
+        int left = 0;
+        
+        for (int right = 0; right < n; right++) {
+            if (!charSet.contains(s.charAt(right))) {
+                charSet.add(s.charAt(right));
+                maxLength = Math.max(maxLength, right - left + 1);
+            } else {
+                while (charSet.contains(s.charAt(right))) {
+                    charSet.remove(s.charAt(left));
+                    left++;
+                }
+                charSet.add(s.charAt(right));
+            }
+        }
+        
+        return maxLength;
+    }
+	
 	private static int _01_Using_HashMap(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
