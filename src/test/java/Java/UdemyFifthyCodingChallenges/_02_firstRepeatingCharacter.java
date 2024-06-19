@@ -17,10 +17,10 @@ public class _02_firstRepeatingCharacter {
 		System.out.println(_01_Using_HashSet(str3));
 		System.out.println(_01_Using_HashSet(str4));
 		System.out.println("-----------------------------");
-		System.out.println(_02_BrureForceApproach(str1));
-		System.out.println(_02_BrureForceApproach(str2));
-		System.out.println(_02_BrureForceApproach(str3));
-		System.out.println(_02_BrureForceApproach(str4));
+		System.out.println(_02_BruteForceApproach(str1));
+		System.out.println(_02_BruteForceApproach(str2));
+		System.out.println(_02_BruteForceApproach(str3));
+		System.out.println(_02_BruteForceApproach(str4));
 		System.out.println("-----------------------------");
 		System.out.println(_03_Using_HashMap(str1));
 		System.out.println(_03_Using_HashMap(str2));

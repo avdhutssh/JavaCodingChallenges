@@ -8,7 +8,7 @@ public class _08_longestSubstringWithoutRepeating {
 
 	public static void main(String[] args) {
 		String str1 = "abcdbeghef"; // 6
-		String str2 = "aaaaa"; // 1
+		String str2 = "aaaaaaaaaaaaaaabbbbbbbbbbbbbbbbb"; // 2
 		String str3 = "eddy"; // 2
 
 		System.out.println(_01_BruteForceApproach(str1));
