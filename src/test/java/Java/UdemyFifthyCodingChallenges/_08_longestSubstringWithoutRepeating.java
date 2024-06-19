@@ -1,5 +1,6 @@
 package Java.UdemyFifthyCodingChallenges;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class _08_longestSubstringWithoutRepeating {
@@ -12,6 +13,11 @@ public class _08_longestSubstringWithoutRepeating {
 		System.out.println(_01_BruteForceApproach(str1));
 		System.out.println(_01_BruteForceApproach(str2));
 		System.out.println(_01_BruteForceApproach(str3));
+		System.out.println("--------------------");
+		
+		System.out.println(_01_Using_HashMap(str1));
+		System.out.println(_01_Using_HashMap(str2));
+		System.out.println(_01_Using_HashMap(str3));
 
 	}
 
@@ -24,7 +30,6 @@ public class _08_longestSubstringWithoutRepeating {
 				String subStr = str.substring(i, j+1);
 				if(isUnique(subStr) && subStr.length()>result.length()) {
 					result = subStr;
-//					System.out.println(result);
 				}
 			}
 			
@@ -33,6 +38,23 @@ public class _08_longestSubstringWithoutRepeating {
 
 	}
 
+	private static int _01_Using_HashMap(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		int maxLen = 0;
+		int start = 0;
+		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+		for (int i = 0; i < str.length(); i++) {
+			if(hm.containsKey(str.charAt(i))) {
+				start = Math.max(start,hm.get(str.charAt(i))+1);
+			}
+			hm.put(str.charAt(i), i);
+			maxLen = Math.max(maxLen, i-start+1);
+			}
+		return maxLen;
+
+	}
+	
 	private static boolean isUnique(String subStr) {
 		HashSet<Character> hs = new HashSet<Character>();
 		for (Character ch : subStr.toCharArray()) {
