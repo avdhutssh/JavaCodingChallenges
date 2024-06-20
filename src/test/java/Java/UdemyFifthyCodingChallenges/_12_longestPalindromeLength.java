@@ -29,6 +29,11 @@ public class _12_longestPalindromeLength {
 		System.out.println(_03_Using_HashSet(str3));
 		System.out.println(_03_Using_HashSet(str4));
 		System.out.println("---------------------------");
+		
+		System.out.println(_04_Using_Array(str1));
+		System.out.println(_04_Using_Array(str2));
+		System.out.println(_04_Using_Array(str3));
+		System.out.println(_04_Using_Array(str4));
 	}
 
 	private static int _01_By_Using_HashMap(String str) {
@@ -82,5 +87,19 @@ public class _12_longestPalindromeLength {
 			}
 		}
 		return hs.isEmpty() ? len : len + 1;
+	}
+
+	private static int _04_Using_Array(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		int[] occurences = new int[128];
+		int len = 0;
+		for (char ch : str.toCharArray()) {
+			occurences[(int) ch]++;
+		}
+		for (int occ : occurences) {
+			len += occ % 2 == 0 ? occ : occ - 1;
+		}
+		return len < str.length() ? ++len : len;
 	}
 }
