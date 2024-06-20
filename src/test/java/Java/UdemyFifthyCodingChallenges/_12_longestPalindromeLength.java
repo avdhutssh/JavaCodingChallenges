@@ -1,6 +1,7 @@
 package Java.UdemyFifthyCodingChallenges;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map.Entry;
 
 public class _12_longestPalindromeLength {
@@ -21,6 +22,12 @@ public class _12_longestPalindromeLength {
 		System.out.println(_02_By_Using_Optimized_HashMap(str2));
 		System.out.println(_02_By_Using_Optimized_HashMap(str3));
 		System.out.println(_02_By_Using_Optimized_HashMap(str4));
+		System.out.println("---------------------------");
+
+		System.out.println(_03_Using_HashSet(str1));
+		System.out.println(_03_Using_HashSet(str2));
+		System.out.println(_03_Using_HashSet(str3));
+		System.out.println(_03_Using_HashSet(str4));
 		System.out.println("---------------------------");
 	}
 
@@ -61,4 +68,19 @@ public class _12_longestPalindromeLength {
 		return hasOdd ? len + 1 : len;
 	}
 
+	private static int _03_Using_HashSet(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		HashSet<Character> hs = new HashSet<>();
+		int len = 0;
+		for (char ch : str.toCharArray()) {
+			if (hs.contains(ch)) {
+				hs.remove(ch);
+				len += 2;
+			} else {
+				hs.add(ch);
+			}
+		}
+		return hs.isEmpty() ? len : len + 1;
+	}
 }
