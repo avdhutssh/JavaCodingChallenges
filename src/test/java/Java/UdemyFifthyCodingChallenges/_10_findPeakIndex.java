@@ -11,11 +11,15 @@ public class _10_findPeakIndex {
 		System.out.println(_01_ByTraversingWholeArray(arr2));
 		System.out.println(_01_ByTraversingWholeArray(arr3));
 		System.out.println("-----------------------------------");
-		
+
 		System.out.println(_02_By_DivideAndConquer_Iteratively(arr1));
 		System.out.println(_02_By_DivideAndConquer_Iteratively(arr2));
 		System.out.println(_02_By_DivideAndConquer_Iteratively(arr3));
 		System.out.println("-----------------------------------");
+		
+		System.out.println(_03_By_DivideAndConquer_Recursively(arr1));
+		System.out.println(_03_By_DivideAndConquer_Recursively(arr2));
+		System.out.println(_03_By_DivideAndConquer_Recursively(arr3));
 	}
 
 	private static int _01_ByTraversingWholeArray(int[] arr) {
@@ -42,5 +46,22 @@ public class _10_findPeakIndex {
 				right = mid;
 		}
 		return left;
+	}
+
+	private static int _03_By_DivideAndConquer_Recursively(int[] arr) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(1)
+		return _03_By_DivideAndConquer_Recursively(arr, 0, arr.length - 1);
+	}
+
+	private static int _03_By_DivideAndConquer_Recursively(int[] arr, int left, int right) {
+		if (left >= right)
+			return left;
+		int mid = (left + right) / 2;
+		if (arr[mid] < arr[mid + 1]) {
+			return _03_By_DivideAndConquer_Recursively(arr, mid + 1, right);
+		} else {
+			return _03_By_DivideAndConquer_Recursively(arr, left, mid);
+		}
 	}
 }
