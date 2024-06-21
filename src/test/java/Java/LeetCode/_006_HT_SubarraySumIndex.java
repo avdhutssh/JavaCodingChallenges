@@ -17,7 +17,7 @@ public class _006_HT_SubarraySumIndex {
 		System.out.println();
 		Arrays.stream(_01_BruteForceApproach(nums4, target4)).forEach(value -> System.out.print(value + " ")); // []
 		System.out.println("-----------------------------------------------------");
-		
+
 		Arrays.stream(_02_Using_HashMap(nums1, target1)).forEach(value -> System.out.print(value + " ")); // [1, 3]
 		System.out.println();
 		Arrays.stream(_02_Using_HashMap(nums2, target2)).forEach(value -> System.out.print(value + " ")); // [0, 3]
@@ -30,6 +30,7 @@ public class _006_HT_SubarraySumIndex {
 	private static int[] _01_BruteForceApproach(int[] nums, int target) {
 		// Time complexity: O(n^2)
 		// Space complexity: O(1)
+		
 		for (int i = 0; i < nums.length; i++) {
 			int sum = 0;
 			for (int j = i; j < nums.length; j++) {
