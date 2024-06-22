@@ -2,6 +2,8 @@ package Java.LeetCode;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class _008_Set_hasUniqueChars {
 
@@ -16,13 +18,19 @@ public class _008_Set_hasUniqueChars {
 		System.out.println(_01_hasUnique(str3));
 		System.out.println(_01_hasUnique(str4));
 		System.out.println(_01_hasUnique(str5));
+		System.out.println("--------------------------");
+		System.out.println(_02_hasUnique(str1));
+		System.out.println(_02_hasUnique(str2));
+		System.out.println(_02_hasUnique(str3));
+		System.out.println(_02_hasUnique(str4));
+		System.out.println(_02_hasUnique(str5));
 	}
 
-	public static boolean _01_hasUnique(String string) {
+	public static boolean _01_hasUnique(String str) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
 		Set<Character> charSet = new HashSet<>();
-		for (char ch : string.toCharArray()) {
+		for (char ch : str.toCharArray()) {
 			if (charSet.contains(ch)) {
 				return false;
 			}
@@ -30,5 +38,12 @@ public class _008_Set_hasUniqueChars {
 		}
 
 		return true;
+	}
+
+	public static boolean _02_hasUnique(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		Set<Character> charSet = str.chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
+		return charSet.size() == str.length();
 	}
 }
