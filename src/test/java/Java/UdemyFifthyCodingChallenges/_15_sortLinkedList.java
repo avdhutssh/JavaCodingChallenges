@@ -68,6 +68,7 @@ public class _15_sortLinkedList {
 		}
 	}
 
+	
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 		list.append(4);
@@ -80,8 +81,8 @@ public class _15_sortLinkedList {
 		System.out.println("Input: ");
 		list.printList();
 
-		_15_sortLinkedList sorter = new _15_sortLinkedList();
-		sorter._01_Using_Bubble_Sort(list);
+		_15_sortLinkedList ll = new _15_sortLinkedList();
+		ll._01_Using_Bubble_Sort(list);
 
 		System.out.println("Output: ");
 		list.printList();
