@@ -68,7 +68,7 @@ public class _15_sortLinkedList {
 		}
 	}
 
-	
+//merge sort remain	
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 		list.append(4);
