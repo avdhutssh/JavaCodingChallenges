@@ -5,7 +5,6 @@ import java.util.Set;
 
 public class _10_Set_longestConsecutiveSequence {
 
-	// Implementation of longestConsecutiveSequence method
 	public static int longestConsecutiveSequence(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return 0;
