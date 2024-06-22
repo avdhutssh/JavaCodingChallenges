@@ -1,0 +1,25 @@
+package Java.LeetCode;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class _007_Set_removeDuplicates {
+
+	public static void main(String[] args) {
+		List<Integer> myList = List.of(1, 2, 3, 4, 1, 2, 5, 6, 7, 3, 4, 8, 9, 5); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+		System.out.println(_01_Using_SetBasedFiltering(myList));
+	}
+
+	static List<Integer> _01_Using_SetBasedFiltering(List<Integer> elements) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		Set<Integer> hs = new HashSet<Integer>();
+		for (int i = 0; i < elements.size(); i++) {
+			hs.add(elements.get(i));
+		}
+		List<Integer> unique = new ArrayList<Integer>(hs);
+		return unique;
+	}
+}
