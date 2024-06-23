@@ -1,6 +1,7 @@
 package Java.InterviewQuestions;
 
 import java.util.HashMap;
+import java.util.TreeMap;
 
 public class _011_frequencyOfEachElementArray {
 
@@ -10,6 +11,8 @@ public class _011_frequencyOfEachElementArray {
 		_01_Using_BruteForceApproach(arr);
 		System.out.println("------------------------");
 		System.out.println(_02_Using_HashMap(arr));
+		System.out.println("------------------------");
+		System.out.println(_03_Using_TreeMap_Sorted_Output(arr));
 	}
 
 	private static void _01_Using_BruteForceApproach(int[] arr) {
@@ -34,6 +37,16 @@ public class _011_frequencyOfEachElementArray {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
 		HashMap<Integer, Integer> freqMap = new HashMap<Integer, Integer>();
+		for (int num : arr) {
+			freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+		}
+		return freqMap;
+	}
+	
+	private static TreeMap<Integer, Integer> _03_Using_TreeMap_Sorted_Output(int[] arr) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(n)
+		TreeMap<Integer, Integer> freqMap = new TreeMap<Integer, Integer>();
 		for (int num : arr) {
 			freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
 		}
