@@ -3,6 +3,7 @@ package Java.InterviewQuestions;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -19,6 +20,8 @@ public class _012_duplicateElementsArray {
 		System.out.println(_02_Using_HashMap(arr));
 		System.out.println("---------------------------------");
 		System.out.println(_03_Using_HashMapWithStream(arr));
+		System.out.println("---------------------------------");
+		System.out.println(_04_Using_HashSet(arr));
 	}
 
 	private static List<Integer> _01_UsingBruteForceApproach(int[] arr) {
@@ -62,5 +65,18 @@ public class _012_duplicateElementsArray {
 		}
 		return hm.entrySet().stream().filter(entry -> entry.getValue() > 1).map(Map.Entry::getKey)
 				.collect(Collectors.toList());
+	}
+
+	private static HashSet<Integer> _04_Using_HashSet(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		HashSet<Integer> hs = new HashSet<Integer>();
+		HashSet<Integer> duplicates = new HashSet<Integer>();
+		for (int num : arr) {
+			if (!hs.add(num)) {
+				duplicates.add(num);
+			}
+		}
+		return duplicates;
 	}
 }
