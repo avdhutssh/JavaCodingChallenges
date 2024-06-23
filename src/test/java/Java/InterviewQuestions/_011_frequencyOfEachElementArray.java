@@ -1,5 +1,6 @@
 package Java.InterviewQuestions;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.TreeMap;
 
@@ -13,6 +14,8 @@ public class _011_frequencyOfEachElementArray {
 		System.out.println(_02_Using_HashMap(arr));
 		System.out.println("------------------------");
 		System.out.println(_03_Using_TreeMap_Sorted_Output(arr));
+		System.out.println("------------------------");
+		System.out.println(_04_By_Sorting_Array(arr));
 	}
 
 	private static void _01_Using_BruteForceApproach(int[] arr) {
@@ -42,7 +45,7 @@ public class _011_frequencyOfEachElementArray {
 		}
 		return freqMap;
 	}
-	
+
 	private static TreeMap<Integer, Integer> _03_Using_TreeMap_Sorted_Output(int[] arr) {
 		// Time complexity: O(nlogn)
 		// Space complexity: O(n)
@@ -52,4 +55,23 @@ public class _011_frequencyOfEachElementArray {
 		}
 		return freqMap;
 	}
+
+	private static HashMap<Integer, Integer> _04_By_Sorting_Array(int[] arr) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(n)
+		Arrays.sort(arr);
+		HashMap<Integer, Integer> freqMap = new HashMap<Integer, Integer>();
+		int freq = 1;
+		for (int i = 1; i < arr.length; i++) {
+			if (arr[i] == arr[i - 1]) {
+				freq++;
+			} else {
+				freqMap.put(arr[i - 1], freq);
+				freq = 1;
+			}
+		}
+		freqMap.put(arr[arr.length-1], freq);
+		return freqMap;
+	}
+
 }
