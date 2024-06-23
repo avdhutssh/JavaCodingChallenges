@@ -3,7 +3,7 @@ package Java.InterviewQuestions;
 import java.util.HashSet;
 import java.util.Set;
 
-public class _10_Set_longestConsecutiveSequence {
+public class _010_Set_longestConsecutiveSequence {
 
 	public static int longestConsecutiveSequence(int[] nums) {
 		if (nums == null || nums.length == 0) {
