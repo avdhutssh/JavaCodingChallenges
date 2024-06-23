@@ -2,6 +2,7 @@ package Java.InterviewQuestions;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
 public class _011_frequencyOfEachElementArray {
@@ -15,7 +16,9 @@ public class _011_frequencyOfEachElementArray {
 		System.out.println("------------------------");
 		System.out.println(_03_Using_TreeMap_Sorted_Output(arr));
 		System.out.println("------------------------");
-		System.out.println(_04_By_Sorting_Array(arr));
+		System.out.println(_04_Using_LinkedHashMap(arr));
+		System.out.println("------------------------");
+		System.out.println(_05_By_Sorting_Array(arr));
 	}
 
 	private static void _01_Using_BruteForceApproach(int[] arr) {
@@ -56,7 +59,17 @@ public class _011_frequencyOfEachElementArray {
 		return freqMap;
 	}
 
-	private static HashMap<Integer, Integer> _04_By_Sorting_Array(int[] arr) {
+	private static LinkedHashMap<Integer, Integer> _04_Using_LinkedHashMap(int[] arr) { // Preserve Insertion Order
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		LinkedHashMap<Integer, Integer> freqMap = new LinkedHashMap<Integer, Integer>();
+		for (int num : arr) {
+			freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+		}
+		return freqMap;
+	}
+	
+	private static HashMap<Integer, Integer> _05_By_Sorting_Array(int[] arr) {
 		// Time complexity: O(nlogn)
 		// Space complexity: O(n)
 		Arrays.sort(arr);
