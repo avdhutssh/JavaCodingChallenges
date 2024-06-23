@@ -1,4 +1,4 @@
-package Java.LeetCode;
+package Java.InterviewQuestions;
 
 import java.util.HashSet;
 import java.util.Set;
