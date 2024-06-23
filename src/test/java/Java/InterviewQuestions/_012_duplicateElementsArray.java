@@ -1,9 +1,11 @@
 package Java.InterviewQuestions;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.checkerframework.checker.units.qual.K;
 
@@ -15,6 +17,8 @@ public class _012_duplicateElementsArray {
 		System.out.println(_01_UsingBruteForceApproach(arr));
 		System.out.println("---------------------------------");
 		System.out.println(_02_Using_HashMap(arr));
+		System.out.println("---------------------------------");
+		System.out.println(_03_Using_HashMapWithStream(arr));
 	}
 
 	private static List<Integer> _01_UsingBruteForceApproach(int[] arr) {
@@ -47,5 +51,16 @@ public class _012_duplicateElementsArray {
 			}
 		}
 		return duplicates;
+	}
+
+	private static List<Integer> _03_Using_HashMapWithStream(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+		for (int num : arr) {
+			hm.put(num, hm.getOrDefault(num, 0) + 1);
+		}
+		return hm.entrySet().stream().filter(entry -> entry.getValue() > 1).map(Map.Entry::getKey)
+				.collect(Collectors.toList());
 	}
 }
