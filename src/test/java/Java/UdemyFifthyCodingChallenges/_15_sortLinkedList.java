@@ -68,7 +68,61 @@ public class _15_sortLinkedList {
 		}
 	}
 
-//merge sort remain	
+	static Node mergeSortedLists(Node head1, Node head2) {
+		Node ptr1 = head1;
+		Node ptr2 = head2;
+		Node returnedHead = null;
+		Node tail = null;
+		Node lower;
+		while (ptr1 != null || ptr2 != null) {
+			if (ptr1 != null && ptr2 != null) {
+				if (ptr1.data < ptr2.data) {
+					lower = ptr1;
+					ptr1 = ptr1.next;
+				} else {
+					lower = ptr2;
+					ptr2 = ptr2.next;
+				}
+			} else if (ptr1 != null) {
+				lower = ptr1;
+				ptr1 = ptr1.next;
+			} else {
+				lower = ptr2;
+				ptr2 = ptr2.next;
+			}
+			if (returnedHead == null) {
+				returnedHead = lower;
+				tail = lower;
+			} else {
+				tail.next = lower;
+				tail = tail.next;
+			}
+		}
+		return returnedHead;
+	}
+
+	static Node mergeSort(Node head) {
+		if (head == null || head.next == null)
+			return head;
+		Node slow = head;
+		Node fast = head;
+		while (fast.next != null && fast.next.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		Node headRightHalf = slow.next;
+		slow.next = null;
+		head = mergeSort(head);
+		headRightHalf = mergeSort(headRightHalf);
+		return mergeSortedLists(head, headRightHalf);
+	}
+
+	static void _02_Using_Merge_Sort(LinkedList list) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(logn)
+		list.head = mergeSort(list.head);
+	}
+
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 		list.append(4);
@@ -82,7 +136,8 @@ public class _15_sortLinkedList {
 		list.printList();
 
 		_15_sortLinkedList ll = new _15_sortLinkedList();
-		ll._01_Using_Bubble_Sort(list);
+//		ll._01_Using_Bubble_Sort(list);
+		ll._02_Using_Merge_Sort(list);
 
 		System.out.println("Output: ");
 		list.printList();
