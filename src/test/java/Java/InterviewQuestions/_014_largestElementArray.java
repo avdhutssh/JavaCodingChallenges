@@ -1,6 +1,8 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
 
 public class _014_largestElementArray {
 
@@ -12,6 +14,8 @@ public class _014_largestElementArray {
 		System.out.println(_02_Using_BruteForceApproach(arr));
 
 		System.out.println(_03_Using_Stream(arr));
+		
+		System.out.println(_04_Using_Priority_Queue(arr));
 	}
 
 	static int _01_Using_Linear_Scan(int[] arr) {
@@ -49,5 +53,15 @@ public class _014_largestElementArray {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
 		return Arrays.stream(arr).max().orElseThrow(() -> new IllegalArgumentException("Array is empty"));
+	}
+
+	static int _04_Using_Priority_Queue(int[] arr) {
+		// Time complexity: O(n+log(n))
+		// Space complexity: O(n)
+		PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
+		for (int num : arr) {
+			maxHeap.add(num);
+		}
+		return maxHeap.peek();
 	}
 }
