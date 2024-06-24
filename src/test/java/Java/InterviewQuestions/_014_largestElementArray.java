@@ -3,6 +3,7 @@ package Java.InterviewQuestions;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.PriorityQueue;
+import java.util.TreeSet;
 
 public class _014_largestElementArray {
 
@@ -16,6 +17,8 @@ public class _014_largestElementArray {
 		System.out.println(_03_Using_Stream(arr));
 		
 		System.out.println(_04_Using_Priority_Queue(arr));
+		
+		System.out.println(_05_Using_Tree_Set(arr));
 	}
 
 	static int _01_Using_Linear_Scan(int[] arr) {
@@ -63,5 +66,15 @@ public class _014_largestElementArray {
 			maxHeap.add(num);
 		}
 		return maxHeap.peek();
+	}
+	
+	static int _05_Using_Tree_Set(int[] arr) {
+		// Time complexity: O(nlog(n))
+		// Space complexity: O(n)
+		TreeSet<Integer> ts = new TreeSet<Integer>();
+		for (int num : arr) {
+			ts.add(num);
+		}
+		return ts.last();
 	}
 }
