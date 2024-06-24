@@ -58,7 +58,7 @@ public class _015_smallestElementArray {
 	}
 
 	private static int _04_Using_Priority_Queue(int[] arr) {
-		// Time complexity: O(n+log(n))
+		// Time complexity: O(nlog(n))
 		// Space complexity: O(n)
 
 		PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
