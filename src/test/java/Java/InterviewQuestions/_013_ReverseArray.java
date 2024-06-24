@@ -1,8 +1,13 @@
 package Java.InterviewQuestions;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Stack;
 import java.util.stream.Collectors;
+
+import com.google.common.collect.Lists;
 
 public class _013_ReverseArray {
 
@@ -14,9 +19,12 @@ public class _013_ReverseArray {
 		Stack<Integer> reversedStack = _02_ReverseArrayUsingStack(arr);
 		while (!reversedStack.isEmpty())
 			System.out.print(reversedStack.pop() + " ");
-
 		System.out.println("\n" + "---------------------------------");
-		Arrays.stream(_03_Using_Two_Pointer_Technique(arr)).forEach(value -> System.out.print(value + " "));
+		
+		System.out.println(_03_reverseArrayUsingCollections(arr));
+		System.out.println("--------------------------------------");
+		
+		Arrays.stream(_04_Using_Two_Pointer_Technique(arr)).forEach(value -> System.out.print(value + " "));
 
 	}
 
@@ -40,9 +48,20 @@ public class _013_ReverseArray {
 		return st;
 	}
 
-	private static int[] _03_Using_Two_Pointer_Technique(int[] arr) {
+	static List<Integer> _03_reverseArrayUsingCollections(int[] arr) {
+		List<Integer> list = new ArrayList<Integer>();
+		for (int i : arr) {
+			list.add(i);
+		}
+		Collections.reverse(list);
+		return list;
+
+	}
+	
+	private static int[] _04_Using_Two_Pointer_Technique(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
+
 		int left = 0;
 		int right = arr.length - 1;
 		while (left < right) {
