@@ -49,6 +49,8 @@ public class _013_ReverseArray {
 	}
 
 	static List<Integer> _03_reverseArrayUsingCollections(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
 		List<Integer> list = new ArrayList<Integer>();
 		for (int i : arr) {
 			list.add(i);
