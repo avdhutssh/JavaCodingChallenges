@@ -14,13 +14,8 @@ public class _015_smallestElementArray {
 		System.out.println(_01_Using_Linear_Scan(arr));
 
 		System.out.println(_02_Using_BruteForceApproach(arr));
-
+		
 		System.out.println(_03_Using_Stream(arr));
-		
-		System.out.println(_04_Using_Priority_Queue(arr));
-		
-		System.out.println(_05_Using_Tree_Set(arr));
-
 	}
 
 	private static int _01_Using_Linear_Scan(int[] arr) {
@@ -58,26 +53,5 @@ public class _015_smallestElementArray {
 		// Space complexity: O(1)
 
 		return Arrays.stream(arr).min().orElseThrow(() -> new IllegalArgumentException("Array is empty"));
-	}
-	
-	private static int _04_Using_Priority_Queue(int[] arr) {
-		// Time complexity: O(n+log(n))
-		// Space complexity: O(n)
-
-		PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
-		for (int num : arr) {
-			minHeap.add(num);
-		}
-		return minHeap.peek();
-	}
-	
-	private static int _05_Using_Tree_Set(int[] arr) {
-		// Time complexity: O(nlog(n))
-		// Space complexity: O(n)
-		TreeSet<Integer> ts = new TreeSet<Integer>();
-		for (int num : arr) {
-			ts.add(num);
-		}
-		return ts.first();
 	}
 }
