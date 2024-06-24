@@ -1,5 +1,7 @@
 package Java.InterviewQuestions;
 
+import java.util.Arrays;
+
 public class _014_largestElementArray {
 
 	public static void main(String[] args) {
@@ -8,6 +10,8 @@ public class _014_largestElementArray {
 		System.out.println(_01_Using_Linear_Scan(arr));
 
 		System.out.println(_02_Using_BruteForceApproach(arr));
+
+		System.out.println(_03_Using_Stream(arr));
 	}
 
 	static int _01_Using_Linear_Scan(int[] arr) {
@@ -39,5 +43,11 @@ public class _014_largestElementArray {
 			}
 		}
 		return -1;
+	}
+
+	static int _03_Using_Stream(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		return Arrays.stream(arr).max().orElseThrow(() -> new IllegalArgumentException("Array is empty"));
 	}
 }
