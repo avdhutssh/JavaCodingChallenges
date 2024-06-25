@@ -12,7 +12,8 @@ public class _018_AscedingOrderArray {
 
 		System.out.println("Arrays.sort: " + Arrays.toString(_01_Using_Arrays_Sort(arr1)));
 		System.out.println("Bubble Sort: " + Arrays.toString(_02_Using_Bubble_Sort(arr2)));
-		System.out.println("Selection Sort: " + Arrays.toString(_02_Using_Bubble_Sort(arr3)));
+		System.out.println("Selection Sort: " + Arrays.toString(_03_Using_Selection_Sort(arr3)));
+		System.out.println("Insertion Sort: " + Arrays.toString(_04_Using_Insertion_Sort(arr4)));
 
 	}
 
@@ -42,8 +43,8 @@ public class _018_AscedingOrderArray {
 		// Time complexity: O(n^2)
 		// Space complexity: O(1)
 		for (int i = 0; i < arr.length - 1; i++) {
-			int minIndex = 0;
-			for (int j = i + 1; j < arr.length - 1; j++) {
+			int minIndex = i;
+			for (int j = i + 1; j < arr.length; j++) {
 				if (arr[j] < arr[minIndex]) {
 					minIndex = j;
 				}
@@ -56,4 +57,20 @@ public class _018_AscedingOrderArray {
 		}
 		return arr;
 	}
+	
+	static int[] _04_Using_Insertion_Sort(int[] arr) {
+		// Time complexity: O(n^2)
+		// Space complexity: O(1)
+	    for (int i = 1; i < arr.length; i++) {
+	        int key = arr[i];
+	        int j = i - 1;
+	        while (j >= 0 && arr[j] > key) {
+	            arr[j + 1] = arr[j];
+	            j = j - 1;
+	        }
+	        arr[j + 1] = key;
+	    }
+	    return arr;
+	}
+
 }
