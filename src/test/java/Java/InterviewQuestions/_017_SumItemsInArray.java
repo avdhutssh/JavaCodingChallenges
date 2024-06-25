@@ -11,7 +11,6 @@ public class _017_SumItemsInArray {
 		System.out.println(_02_Using_While_loop(arr));
 		System.out.println(_03_Using_Streams(arr));
 		System.out.println(_04_Using_Recursion(arr));
-
 	}
 
 	private static int _01_Using_For_loop(int[] arr) {
