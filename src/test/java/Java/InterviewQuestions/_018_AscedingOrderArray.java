@@ -1,6 +1,8 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
 
 public class _018_AscedingOrderArray {
 
@@ -9,11 +11,13 @@ public class _018_AscedingOrderArray {
 		int[] arr2 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
 		int[] arr3 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
 		int[] arr4 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
+		int[] arr5 = new int[] { 5, 2, 8, 7, 1 }; // 1 2 5 7 8
 
 		System.out.println("Arrays.sort: " + Arrays.toString(_01_Using_Arrays_Sort(arr1)));
 		System.out.println("Bubble Sort: " + Arrays.toString(_02_Using_Bubble_Sort(arr2)));
 		System.out.println("Selection Sort: " + Arrays.toString(_03_Using_Selection_Sort(arr3)));
 		System.out.println("Insertion Sort: " + Arrays.toString(_04_Using_Insertion_Sort(arr4)));
+		System.out.println("Heap Sort: " + Arrays.toString(_05_Using_Heap_Sort(arr5)));
 
 	}
 
@@ -57,20 +61,35 @@ public class _018_AscedingOrderArray {
 		}
 		return arr;
 	}
-	
+
 	static int[] _04_Using_Insertion_Sort(int[] arr) {
 		// Time complexity: O(n^2)
 		// Space complexity: O(1)
-	    for (int i = 1; i < arr.length; i++) {
-	        int key = arr[i];
-	        int j = i - 1;
-	        while (j >= 0 && arr[j] > key) {
-	            arr[j + 1] = arr[j];
-	            j = j - 1;
-	        }
-	        arr[j + 1] = key;
-	    }
-	    return arr;
+		for (int i = 1; i < arr.length; i++) {
+			int key = arr[i];
+			int j = i - 1;
+			while (j >= 0 && arr[j] > key) {
+				arr[j + 1] = arr[j];
+				j = j - 1;
+			}
+			arr[j + 1] = key;
+		}
+		return arr;
 	}
 
+	static int[] _05_Using_Heap_Sort(int[] arr) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(1)
+		PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
+		for (Integer num : arr) {
+			maxHeap.add(num);
+		}
+
+		int index = arr.length - 1;
+
+		while (!maxHeap.isEmpty()) {
+			arr[index--] = maxHeap.poll();
+		}
+		return arr;
+	}
 }
