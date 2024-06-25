@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.checkerframework.checker.units.qual.min;
 
@@ -20,9 +21,12 @@ public class _019_secondLargestNumberArray {
 
 		System.out.println(_02_By_Sorting_Array(arr3));
 		System.out.println(_02_By_Sorting_Array(arr4));
-		
+
 		System.out.println(_03_By_Using_Priority_Queue(arr1));
 		System.out.println(_03_By_Using_Priority_Queue(arr2));
+		
+		System.out.println(_04_By_Using_Tree_Set(arr1));
+		System.out.println(_04_By_Using_Tree_Set(arr2));
 
 	}
 
@@ -63,17 +67,30 @@ public class _019_secondLargestNumberArray {
 	}
 
 	private static int _03_By_Using_Priority_Queue(int[] arr) {
+		// Time complexity: O(nlogk)
+		// Space complexity: O(1)
 		PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>(2);
 		Set<Integer> unique = new HashSet<Integer>();
 		for (int num : arr) {
-			if(unique.add(num)) {
+			if (unique.add(num)) {
 				minHeap.offer(num);
-				if(minHeap.size()>2) {
+				if (minHeap.size() > 2) {
 					minHeap.poll();
 				}
 			}
 		}
 		return minHeap.poll();
+	}
+
+	private static int _04_By_Using_Tree_Set(int[] arr) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(n)
+		TreeSet<Integer> ts = new TreeSet<Integer>();
+		for (int num : arr) {
+			ts.add(num);
+		}
+
+		return ts.lower(ts.last());
 	}
 
 }
