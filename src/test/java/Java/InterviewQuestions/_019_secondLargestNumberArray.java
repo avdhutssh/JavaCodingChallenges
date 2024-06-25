@@ -12,6 +12,11 @@ public class _019_secondLargestNumberArray {
 	}
 
 	private static int _01_Using_Linear_Scan(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		if(arr.length<2) {
+			throw new IllegalArgumentException("Array must contains atleast 2 elements");
+		}
 		int largest = 0, secondLargest = 0;
 		for (int num : arr) {
 			if (num > largest) {
