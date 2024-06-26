@@ -6,8 +6,6 @@ import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.checkerframework.checker.units.qual.min;
-
 public class _019_secondLargestNumberArray {
 
 	public static void main(String[] args) {
