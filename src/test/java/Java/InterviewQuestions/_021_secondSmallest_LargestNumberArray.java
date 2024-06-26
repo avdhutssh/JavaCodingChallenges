@@ -11,7 +11,8 @@ public class _021_secondSmallest_LargestNumberArray {
 	}
 
 	private static void _01_Using_Linear_Scan(int[] arr) {
-
+		// Time complexity: O(n)
+		// Space complexity: O(1)
 		int secondSmallest = Integer.MAX_VALUE;
 		int smallest = Integer.MAX_VALUE;
 		int secondLargest = Integer.MIN_VALUE;
