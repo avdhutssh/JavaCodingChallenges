@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class _020_secondSmallestNumberArray {
 
@@ -22,9 +23,9 @@ public class _020_secondSmallestNumberArray {
 
 		System.out.println(_03_By_Using_Priority_Queue(arr1));
 		System.out.println(_03_By_Using_Priority_Queue(arr2));
-//		
-//		System.out.println(_04_By_Using_Tree_Set(arr1));
-//		System.out.println(_04_By_Using_Tree_Set(arr2));
+
+		System.out.println(_04_By_Using_Tree_Set(arr1));
+		System.out.println(_04_By_Using_Tree_Set(arr2));
 
 	}
 
@@ -83,4 +84,15 @@ public class _020_secondSmallestNumberArray {
 
 		return maxHeap.poll();
 	}
+
+	private static int _04_By_Using_Tree_Set(int[] arr) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(n)
+		TreeSet<Integer> ts = new TreeSet<Integer>();
+		for (int num : arr) {
+			ts.add(num);
+		}
+		return ts.higher(ts.first());
+	}
+
 }
