@@ -2,7 +2,6 @@ package Java.InterviewQuestions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +12,7 @@ public class _022_oddEvenNumbersArray {
 		_01_Using_Linear_Scan(arr);
 		_02_Using_Two_Arrays(arr);
 		_03_Using_Streams(arr);
+		_04_Using_Bit_Manipulation(arr);
 	}
 
 	private static void _01_Using_Linear_Scan(int[] arr) {
@@ -52,6 +52,20 @@ public class _022_oddEvenNumbersArray {
 		// Space complexity: O(n)
 		List<Integer> even = Arrays.stream(arr).filter(num -> num % 2 == 0).boxed().collect(Collectors.toList());
 		List<Integer> odd = Arrays.stream(arr).filter(num -> num % 2 != 0).boxed().collect(Collectors.toList());
+		System.out.println("Even: " + even + " | Odd: " + odd);
+	}
+
+	private static void _04_Using_Bit_Manipulation(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		List<Integer> even = new ArrayList<Integer>();
+		List<Integer> odd = new ArrayList<Integer>();
+		for (int num : arr) {
+			if ((num & 1) == 0)
+				even.add(num);
+			else
+				odd.add(num);
+		}
 		System.out.println("Even: " + even + " | Odd: " + odd);
 	}
 }
