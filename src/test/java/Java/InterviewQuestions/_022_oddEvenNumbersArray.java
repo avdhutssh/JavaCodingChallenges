@@ -12,7 +12,7 @@ public class _022_oddEvenNumbersArray {
 
 	private static void _01_Using_Linear_Scan(int[] arr) {
 		// Time complexity: O(n)
-		// Space complexity: O(1)
+		// Space complexity: O(n)
 		List<Integer> even = new ArrayList<Integer>();
 		List<Integer> odd = new ArrayList<Integer>();
 		for (int num : arr) {
