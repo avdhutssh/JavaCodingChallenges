@@ -10,8 +10,10 @@ public class _023_removeAllWhiteSpacesFromString {
 		System.out.println(_01_UsingReplaceAll(str));
 
 		System.out.println(_02_Using_CharArray(str));
-		
+
 		System.out.println(_03_Using_Stream(str));
+
+		System.out.println(_04_Using_CharArray_StringBuilder(str));
 
 	}
 
@@ -35,7 +37,22 @@ public class _023_removeAllWhiteSpacesFromString {
 	}
 
 	private static String _03_Using_Stream(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
 		return str.chars().filter(c -> !Character.isWhitespace(c)).mapToObj(c -> String.valueOf((char) c))
 				.collect(Collectors.joining());
+	}
+
+	private static String _04_Using_CharArray_StringBuilder(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		char[] arr = str.toCharArray();
+		StringBuilder sb = new StringBuilder();
+		for (char c : arr) {
+			if (!Character.isWhitespace(c)) {
+				sb.append(c);
+			}
+		}
+		return sb.toString();
 	}
 }
