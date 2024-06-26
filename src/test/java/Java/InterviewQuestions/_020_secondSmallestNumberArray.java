@@ -1,6 +1,10 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
 
 public class _020_secondSmallestNumberArray {
 
@@ -16,8 +20,8 @@ public class _020_secondSmallestNumberArray {
 		System.out.println(_02_By_Sorting_Array(arr3));
 		System.out.println(_02_By_Sorting_Array(arr4));
 
-//		System.out.println(_03_By_Using_Priority_Queue(arr1));
-//		System.out.println(_03_By_Using_Priority_Queue(arr2));
+		System.out.println(_03_By_Using_Priority_Queue(arr1));
+		System.out.println(_03_By_Using_Priority_Queue(arr2));
 //		
 //		System.out.println(_04_By_Using_Tree_Set(arr1));
 //		System.out.println(_04_By_Using_Tree_Set(arr2));
@@ -62,4 +66,21 @@ public class _020_secondSmallestNumberArray {
 		throw new IllegalArgumentException("No Second Largest element");
 	}
 
+	private static int _03_By_Using_Priority_Queue(int[] arr) {
+		// Time complexity: O(nlogk)
+		// Space complexity: O(1)
+		PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
+		Set<Integer> uniqueElements = new HashSet<Integer>();
+		for (int num : arr) {
+			if (uniqueElements.add(num)) {
+				maxHeap.offer(num);
+				if (maxHeap.size() > 2) {
+					maxHeap.poll();
+				}
+			}
+
+		}
+
+		return maxHeap.poll();
+	}
 }
