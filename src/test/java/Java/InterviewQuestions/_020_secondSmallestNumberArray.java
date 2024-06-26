@@ -1,5 +1,7 @@
 package Java.InterviewQuestions;
 
+import java.util.Arrays;
+
 public class _020_secondSmallestNumberArray {
 
 	public static void main(String[] args) {
@@ -11,9 +13,9 @@ public class _020_secondSmallestNumberArray {
 		System.out.println(_01_Using_Linear_Scan(arr1));
 		System.out.println(_01_Using_Linear_Scan(arr2));
 
-//		System.out.println(_02_By_Sorting_Array(arr3));
-//		System.out.println(_02_By_Sorting_Array(arr4));
-//
+		System.out.println(_02_By_Sorting_Array(arr3));
+		System.out.println(_02_By_Sorting_Array(arr4));
+
 //		System.out.println(_03_By_Using_Priority_Queue(arr1));
 //		System.out.println(_03_By_Using_Priority_Queue(arr2));
 //		
@@ -23,7 +25,8 @@ public class _020_secondSmallestNumberArray {
 	}
 
 	private static int _01_Using_Linear_Scan(int[] arr) {
-
+		// Time complexity: O(n)
+		// Space complexity: O(1)
 		if (arr.length < 2) {
 			throw new IllegalArgumentException("Array must have atleast 2 elements");
 		}
@@ -44,6 +47,19 @@ public class _020_secondSmallestNumberArray {
 		}
 
 		return secondSmallest;
+	}
+
+	private static int _02_By_Sorting_Array(int[] arr) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(1)
+		Arrays.sort(arr);
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] != arr[i + 1]) {
+				return arr[i + 1];
+			}
+		}
+
+		throw new IllegalArgumentException("No Second Largest element");
 	}
 
 }
