@@ -1,5 +1,6 @@
 package Java.InterviewQuestions;
 
+import java.util.Arrays;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,6 +14,7 @@ public class _025_countNumberOfWordsInString {
 		System.out.println("Word Count using StringTokenizer: " + _02_Using_StringTokenizer(str));
 		System.out.println("Word Count using countWordsManually: " + _03_countWordsManually(str));
 		System.out.println("Word Count using Regular Expression: " + _04_Using_Regular_Expression(str));
+		System.out.println("Word Count using Stream: " + _05_Using_Stream(str));
 
 	}
 
@@ -61,5 +63,13 @@ public class _025_countNumberOfWordsInString {
 		}
 
 		return count;
+	}
+	
+	private static long _05_Using_Stream(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+
+
+		return Arrays.stream(str.trim().split("\\s+")).count();
 	}
 }
