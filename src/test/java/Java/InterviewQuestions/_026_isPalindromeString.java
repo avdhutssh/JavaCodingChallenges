@@ -1,6 +1,5 @@
 package Java.InterviewQuestions;
 
-import java.util.Iterator;
 import java.util.Stack;
 
 public class _026_isPalindromeString {
@@ -80,6 +79,23 @@ public class _026_isPalindromeString {
 			return false;
 		}
 		return _04_Using_Recursion(str.substring(1, str.length() - 1));
+	}
+
+	private static boolean _05_Using_Stack(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		str = str.trim().replaceAll("[\\W_]", "").toLowerCase();
+		Stack<Character> st = new Stack<Character>();
+		for (int i = 0; i < str.length() / 2; i++) {
+			st.push(str.charAt(i));
+		}
+		for (int i = (str.length() + 1) / 2; i < str.length(); i++) {
+			if (st.pop() != str.charAt(i)) {
+				return false;
+			}
+		}
+		return true;
+
 	}
 
 }
