@@ -1,6 +1,8 @@
 package Java.InterviewQuestions;
 
 import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class _025_countNumberOfWordsInString {
 
@@ -10,6 +12,7 @@ public class _025_countNumberOfWordsInString {
 		System.out.println("Word Count using spilt: " + _01_Using_Split_Array(str));
 		System.out.println("Word Count using StringTokenizer: " + _02_Using_StringTokenizer(str));
 		System.out.println("Word Count using countWordsManually: " + _03_countWordsManually(str));
+		System.out.println("Word Count using Regular Expression: " + _04_Using_Regular_Expression(str));
 
 	}
 
@@ -42,6 +45,19 @@ public class _025_countNumberOfWordsInString {
 			} else if (Character.isLetter(str.charAt(i)) && i == EOL) {
 				count++;
 			}
+		}
+
+		return count;
+	}
+
+	private static int _04_Using_Regular_Expression(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int count = 0;
+		Pattern pattern = Pattern.compile("\\b\\w+\\b");
+		Matcher matcher = pattern.matcher(str);
+		while (matcher.find()) {
+			count++;
 		}
 
 		return count;
