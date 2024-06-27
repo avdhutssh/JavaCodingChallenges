@@ -1,5 +1,7 @@
 package Java.InterviewQuestions;
 
+import java.util.Stack;
+
 public class _027_reverseString {
 
 	public static void main(String[] args) {
@@ -7,6 +9,7 @@ public class _027_reverseString {
 
 		System.out.println("Using BFA: " + _01_Using_BruteForceApproach(str));
 		System.out.println("Using String Builder: " + _02_Using_String_Builder(str));
+		System.out.println("Using Stack: " + _03_Using_Stack(str));
 
 	}
 
@@ -26,4 +29,17 @@ public class _027_reverseString {
 		return new StringBuilder(str).reverse().toString();
 	}
 
+	private static String _03_Using_Stack(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		String reverseStr = "";
+		Stack<Character> st = new Stack<Character>();
+		for (char ch : str.toCharArray()) {
+			st.push(ch);
+		}
+		while (!st.isEmpty()) {
+			reverseStr += st.pop();
+		}
+		return reverseStr;
+	}
 }
