@@ -15,6 +15,11 @@ public class _026_isPalindromeString {
 		System.out.println(_02_Using_String_Reverse(str1));
 		System.out.println(_02_Using_String_Reverse(str2));
 		System.out.println(_02_Using_String_Reverse(str3));
+		System.out.println("----------------------------------");
+		
+		System.out.println(_03_Using_Two_Pointer_Technique(str1));
+		System.out.println(_03_Using_Two_Pointer_Technique(str2));
+		System.out.println(_03_Using_Two_Pointer_Technique(str3));
 	}
 
 	private static boolean _01_Using_Brute_force_Approach(String str) {
@@ -35,5 +40,20 @@ public class _026_isPalindromeString {
 		str = str.trim().replaceAll("\\s+","").toLowerCase();
 		String reverseStr= new StringBuilder(str).reverse().toString();
 		return str.equals(reverseStr);
+	}
+	
+	private static boolean _03_Using_Two_Pointer_Technique(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		str = str.trim().replaceAll("[\\W_]","").toLowerCase();
+		int left = 0;
+		int right = str.length()-1;
+		int i = 0;
+		while(left!=right) {
+			if(str.charAt(left++)!=str.charAt(right--)) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
