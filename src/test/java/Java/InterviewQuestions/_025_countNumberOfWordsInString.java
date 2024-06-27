@@ -9,6 +9,7 @@ public class _025_countNumberOfWordsInString {
 
 		System.out.println("Word Count using spilt: " + _01_Using_Split_Array(str));
 		System.out.println("Word Count using StringTokenizer: " + _02_Using_StringTokenizer(str));
+		System.out.println("Word Count using countWordsManually: " + _03_countWordsManually(str));
 
 	}
 
@@ -26,4 +27,23 @@ public class _025_countNumberOfWordsInString {
 		return st.countTokens();
 	}
 
+	private static int _03_countWordsManually(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int count = 0;
+		int EOL = str.length() - 1;
+		boolean isWord = false;
+		for (int i = 0; i < str.length(); i++) {
+			if (Character.isLetter(str.charAt(i)) && i != EOL) {
+				isWord = true;
+			} else if (!Character.isLetter(str.charAt(i)) && isWord) {
+				count++;
+				isWord = false;
+			} else if (Character.isLetter(str.charAt(i)) && i == EOL) {
+				count++;
+			}
+		}
+
+		return count;
+	}
 }
