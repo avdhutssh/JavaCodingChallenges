@@ -1,7 +1,5 @@
 package Java.InterviewQuestions;
 
-import java.util.Iterator;
-
 public class _030_removeLeading_And_Trailing_Zeros {
 
 	public static void main(String[] args) {
@@ -11,22 +9,32 @@ public class _030_removeLeading_And_Trailing_Zeros {
 		System.out.println("Using BFA: " + _01_Using_Brute_Force_Approach(str1));
 		System.out.println("Using BFA: " + _01_Using_Brute_Force_Approach(str2));
 		System.out.println("----------------------------------------------------");
+		
+		System.out.println("Using RegX: " + _02_Using_Regular_Expression(str1));
+		System.out.println("Using RegX: " + _02_Using_Regular_Expression(str2));
 
 	}
 
 	private static String _01_Using_Brute_Force_Approach(String str) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
-		int start =0;
-		int end = str.length()-1;
-		while(start<str.length()-1 && str.charAt(start)=='0') {
+		int start = 0;
+		int end = str.length() - 1;
+		while (start < str.length() - 1 && str.charAt(start) == '0') {
 			start++;
 		}
-		while(end>=0&& str.charAt(end)=='0') {
+		while (end >= 0 && str.charAt(end) == '0') {
 			end--;
 		}
 
-		return str.substring(start,end+1);
+		return str.substring(start, end + 1);
 	}
 
+	private static String _02_Using_Regular_Expression(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+
+		return str.replaceFirst("^0+", "").replaceAll("0+$", "");
+	}
+	
 }
