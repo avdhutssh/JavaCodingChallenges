@@ -13,6 +13,10 @@ public class _028_removeLeadingZeros {
 		System.out.println("Using Substring : " + _02_Using_Substring(str1));
 		System.out.println("Using Substring : " + _02_Using_Substring(str2));
 		System.out.println("-----------------------------------------------------------");
+
+		System.out.println("Using RegX : " + _03_Using_RegX(str1));
+		System.out.println("Using RegX : " + _03_Using_RegX(str2));
+		System.out.println("-----------------------------------------------------------");
 	}
 
 	private static String _01_Using_Brute_Force_Approach(String str) {
@@ -43,5 +47,12 @@ public class _028_removeLeadingZeros {
 		}
 		return str;
 
+	}
+
+	private static String _03_Using_RegX(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+
+		return str.replaceFirst("^0+(?!$)", "");
 	}
 }
