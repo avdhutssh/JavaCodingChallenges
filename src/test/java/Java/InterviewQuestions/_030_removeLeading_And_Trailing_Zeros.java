@@ -23,7 +23,7 @@ public class _030_removeLeading_And_Trailing_Zeros {
 		// Space Complexity: O(n)
 		int start = 0;
 		int end = str.length() - 1;
-		while (start < str.length() - 1 && str.charAt(start) == '0') {
+		while (start < str.length() && str.charAt(start) == '0') {
 			start++;
 		}
 		while (end >= 0 && str.charAt(end) == '0') {

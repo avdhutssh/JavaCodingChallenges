@@ -19,7 +19,7 @@ public class _031_firstLetterOfEachWordString {
 		// Space Complexity: O(n)
 		String result = "";
 		boolean isSpace = true;
-		for (int i = 0; i < str.length() - 1; i++) {
+		for (int i = 0; i < str.length(); i++) {
 			if (str.charAt(i) != ' ' && isSpace) {
 				result += str.charAt(i);
 				isSpace = false;
