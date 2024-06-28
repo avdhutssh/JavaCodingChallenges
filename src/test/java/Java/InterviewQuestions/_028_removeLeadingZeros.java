@@ -1,5 +1,7 @@
 package Java.InterviewQuestions;
 
+import java.math.BigInteger;
+
 public class _028_removeLeadingZeros {
 
 	public static void main(String[] args) {
@@ -16,6 +18,10 @@ public class _028_removeLeadingZeros {
 
 		System.out.println("Using RegX : " + _03_Using_RegX(str1));
 		System.out.println("Using RegX : " + _03_Using_RegX(str2));
+		System.out.println("-----------------------------------------------------------");
+
+		System.out.println("Using Big Integer : " + _04_Using_Big_Integer(str1));
+		System.out.println("Using Big Integer : " + _04_Using_Big_Integer(str2));
 		System.out.println("-----------------------------------------------------------");
 	}
 
@@ -54,5 +60,12 @@ public class _028_removeLeadingZeros {
 		// Space Complexity: O(n)
 
 		return str.replaceFirst("^0+(?!$)", "");
+	}
+
+	private static String _04_Using_Big_Integer(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+
+		return new BigInteger(str).toString();
 	}
 }
