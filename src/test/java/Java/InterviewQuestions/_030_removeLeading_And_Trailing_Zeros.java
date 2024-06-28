@@ -9,10 +9,13 @@ public class _030_removeLeading_And_Trailing_Zeros {
 		System.out.println("Using BFA: " + _01_Using_Brute_Force_Approach(str1));
 		System.out.println("Using BFA: " + _01_Using_Brute_Force_Approach(str2));
 		System.out.println("----------------------------------------------------");
-		
+
 		System.out.println("Using RegX: " + _02_Using_Regular_Expression(str1));
 		System.out.println("Using RegX: " + _02_Using_Regular_Expression(str2));
-
+		System.out.println("----------------------------------------------------");
+		
+		System.out.println("Using RegX optimize: " + _03_Using_Regular_Expression_Optimize(str1));
+		System.out.println("Using RegX optimize: " + _03_Using_Regular_Expression_Optimize(str2));
 	}
 
 	private static String _01_Using_Brute_Force_Approach(String str) {
@@ -36,5 +39,11 @@ public class _030_removeLeading_And_Trailing_Zeros {
 
 		return str.replaceFirst("^0+", "").replaceAll("0+$", "");
 	}
-	
+
+	private static String _03_Using_Regular_Expression_Optimize(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+
+		return str.replaceAll("^0+|0+$", "");
+	}
 }
