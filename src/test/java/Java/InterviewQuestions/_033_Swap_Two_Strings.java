@@ -41,7 +41,6 @@ public class _033_Swap_Two_Strings {
 		System.out.println("Before-> s1 : " + s1 + " s2 : " + s2);
 
 		String[] arr = { s1, s2 };
-
 		arr[0] = s2;
 		arr[1] = s1;
 		s1 = arr[0];
