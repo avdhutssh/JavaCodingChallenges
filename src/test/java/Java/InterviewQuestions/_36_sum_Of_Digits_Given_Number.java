@@ -14,6 +14,8 @@ public class _36_sum_Of_Digits_Given_Number {
 		System.out.println(_02_Using_Recursion(num2));
 		System.out.println("-----------------------------------");
 
+		System.out.println(_03_Using_String_Conversion(num1));
+		System.out.println(_03_Using_String_Conversion(num2));
 	}
 
 	private static int _01_Using_Brute_Force_Approach(int num) {
@@ -34,6 +36,17 @@ public class _36_sum_Of_Digits_Given_Number {
 			return 0;
 		}
 		return num % 10 + _02_Using_Recursion(num / 10);
+	}
+
+	private static int _03_Using_String_Conversion(int num) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		String originalNum = String.valueOf(num);
+		int sum = 0;
+		for (char ch : originalNum.toCharArray()) {
+			sum += Character.getNumericValue(ch);
+		}
+		return sum;
 	}
 
 }
