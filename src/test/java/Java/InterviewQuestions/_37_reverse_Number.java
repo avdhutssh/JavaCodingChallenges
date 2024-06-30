@@ -1,5 +1,7 @@
 package Java.InterviewQuestions;
 
+import java.util.Stack;
+
 public class _37_reverse_Number {
 
 	public static void main(String[] args) {
@@ -16,6 +18,10 @@ public class _37_reverse_Number {
 
 		System.out.println("Using Recursion: " + _03_Using_Recursion(num1, 0));
 		System.out.println("Using Recursion: " + _03_Using_Recursion(num2, 0));
+		System.out.println("--------------------------------");
+
+		System.out.println("Using Stack: " + _04_Using_Stack(num1));
+		System.out.println("Using Stack: " + _04_Using_Stack(num2));
 	}
 
 	private static int _01_Using_BruteForceApproach(int num) {
@@ -44,5 +50,23 @@ public class _37_reverse_Number {
 			return reverse;
 		}
 		return _03_Using_Recursion(num / 10, reverse * 10 + num % 10);
+	}
+
+	private static int _04_Using_Stack(int num) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		Stack<Integer> st = new Stack<Integer>();
+		while (num != 0) {
+			st.push(num % 10);
+			num /= 10;
+		}
+
+		int reverseNum = 0;
+		int place = 1;
+		while (!st.isEmpty()) {
+			reverseNum += st.pop() * place;
+			place *= 10;
+		}
+		return reverseNum;
 	}
 }
