@@ -2,7 +2,9 @@ package Java.InterviewQuestions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class _40_duplicatesInString {
 
@@ -11,6 +13,7 @@ public class _40_duplicatesInString {
 
 		System.out.println("Using BFA: " + _01_Using_BruteForcePproach(str));
 		System.out.println("Using HashMap: " + _02_Using_HashMap(str));
+		System.out.println("Using HashSet: " + _03_Using_HashSet(str));
 
 	}
 
@@ -49,4 +52,19 @@ public class _40_duplicatesInString {
 		return duplicates.toString();
 	}
 
+
+	private static Set<Character> _03_Using_HashSet(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		Set<Character> uniques = new HashSet<Character>();
+		Set<Character> duplicates = new HashSet<Character>();
+		for (char ch : str.toCharArray()) {
+			if (ch != ' ') {
+				if(!uniques.add(ch)) {
+					duplicates.add(ch);
+				}
+			}
+		}
+		return duplicates;
+	}
 }
