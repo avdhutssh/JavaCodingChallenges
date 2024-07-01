@@ -15,7 +15,7 @@ public class _38_isPrime {
 	}
 
 	private static boolean _01_Using_BruteForceApproach(int num) {
-		// Time complexity: O(n)
+		// Time complexity: O(sqrt(n))
 		// Space complexity: O(1)
 		if (num == 1) {
 			return false;
