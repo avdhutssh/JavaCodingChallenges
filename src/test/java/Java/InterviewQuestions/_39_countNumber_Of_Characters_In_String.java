@@ -1,5 +1,7 @@
 package Java.InterviewQuestions;
 
+import java.util.HashMap;
+
 public class _39_countNumber_Of_Characters_In_String {
 
 	public static void main(String[] args) {
@@ -8,6 +10,7 @@ public class _39_countNumber_Of_Characters_In_String {
 		System.out.println("Using BFA: " + _01_Using_BruteForceApproach(str));
 		System.out.println("Using Replace All method: " + _02_Using_String_Method_ReplaceAll(str));
 		System.out.println("Using Stream: " + _03_Using_Stream(str));
+		System.out.println("Using Hashmap: " + _04_Using_HashMap(str));
 	}
 
 	private static int _01_Using_BruteForceApproach(String str) {
@@ -33,7 +36,23 @@ public class _39_countNumber_Of_Characters_In_String {
 
 	private static long _03_Using_Stream(String str) {
 		// Time complexity: O(n)
-		// Space complexity: O(n)
+		// Space complexity: O(1)
 		return str.chars().filter(ch -> ch != ' ').count();
+	}
+
+	private static int _04_Using_HashMap(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+		for (char ch : str.toCharArray()) {
+			if (ch != ' ') {
+				hm.put(ch, hm.getOrDefault(ch, 0) + 1);
+			}
+		}
+		int totalCount = 0;
+		for (int count : hm.values()) {
+			totalCount += count;
+		}
+		return totalCount;
 	}
 }
