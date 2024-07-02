@@ -16,7 +16,7 @@ public class _42_reverseArray {
 		System.out.println("Using Temp Array: " + Arrays.toString(_01_Using_Temp_array(arr1)));
 		System.out.println("Using Two Pointer Technique: " + Arrays.toString(_02_Using_Two_Pointer_Technique(arr2)));
 		System.out.println("Using Stack: " + Arrays.toString(_03_Using_Stack(arr3)));
-		System.out.println("Using Collectopn: " + Arrays.toString(_04_Using_Collections(arr4)));
+		System.out.println("Using Collection: " + Arrays.toString(_04_Using_Collections(arr4)));
 
 	}
 
