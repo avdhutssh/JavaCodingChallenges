@@ -1,6 +1,8 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Stack;
 
 public class _42_reverseArray {
@@ -9,10 +11,12 @@ public class _42_reverseArray {
 		char[] arr1 = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
 		char[] arr2 = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
 		char[] arr3 = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
+		Character[] arr4 = { 'a', 'b', 'c', 'd', 'e' }; // e d c b a
 
 		System.out.println("Using Temp Array: " + Arrays.toString(_01_Using_Temp_array(arr1)));
 		System.out.println("Using Two Pointer Technique: " + Arrays.toString(_02_Using_Two_Pointer_Technique(arr2)));
 		System.out.println("Using Stack: " + Arrays.toString(_03_Using_Stack(arr3)));
+		System.out.println("Using Collectopn: " + Arrays.toString(_04_Using_Collections(arr4)));
 
 	}
 
@@ -57,6 +61,14 @@ public class _42_reverseArray {
 			i++;
 		}
 		return reversedArr;
+	}
+
+	private static Character[] _04_Using_Collections(Character[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		List<Character> list = Arrays.asList(arr);
+		Collections.reverse(list);
+		return list.toArray(new Character[0]);
 	}
 
 }
