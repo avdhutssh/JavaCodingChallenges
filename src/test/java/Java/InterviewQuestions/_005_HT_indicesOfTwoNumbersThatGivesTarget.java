@@ -13,9 +13,9 @@ public class _005_HT_indicesOfTwoNumbersThatGivesTarget {
 		System.out.println(Arrays.toString(_01_BruteForceApproach(new int[] { 1, 2, 3, 4, 5 }, 7))); // [2, 3]
 		System.out.println(Arrays.toString(_01_BruteForceApproach(new int[] { 1, 2, 3, 4, 5 }, 3))); // [0, 1]
 		System.out.println(Arrays.toString(_01_BruteForceApproach(new int[] {}, 0))); // []
-		
+
 		System.out.println("-----------------------------------------");
-		
+
 		System.out.println(Arrays.toString(_02_Using_HashMap(new int[] { 2, 7, 11, 15 }, 9))); // [0, 1]
 		System.out.println(Arrays.toString(_02_Using_HashMap(new int[] { 3, 2, 4 }, 6))); // [1, 2]
 		System.out.println(Arrays.toString(_02_Using_HashMap(new int[] { 3, 3 }, 6))); // [0, 1]
@@ -51,7 +51,7 @@ public class _005_HT_indicesOfTwoNumbersThatGivesTarget {
 			if (hm.containsKey(otherNumber)) {
 				return new int[] { hm.get(otherNumber), i };
 			}
-			hm.put(arr[i], i);
+			hm.put(num, i);
 		}
 		return new int[] {};
 	}
