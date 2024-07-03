@@ -17,6 +17,9 @@ public class _43_countCapitalizedWordsInString {
 		System.out.println("Using Regular Expresson: " + _02_Using_Regular_Expression(str2));
 		System.out.println("-------------------");
 
+		System.out.println("Using Stream: " + _03_Using_Stream(str1));
+		System.out.println("Using Stream: " + _03_Using_Stream(str2));
+
 	}
 
 	private static int _01_Using_BruteForceApproach(String str) {
@@ -43,4 +46,10 @@ public class _43_countCapitalizedWordsInString {
 		return count;
 	}
 
+	private static long _03_Using_Stream(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+
+		return str.chars().filter(ch -> Character.isUpperCase(ch)).count();
+	}
 }
