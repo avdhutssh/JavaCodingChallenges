@@ -11,7 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import io.cucumber.java.an.E;
 
 public class _17_removeAndAddTags {
 	static WebDriver driver;
