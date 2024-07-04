@@ -5,7 +5,7 @@ public class _45_stringOutputAsPerIntStrCombination {
 	public static void main(String[] args) {
 		String str = "a2b3c4"; // aabbbcccc
 
-		System.out.println("Using BFA: " + _01_Using_Brute_Force_Approach(str));
+		System.out.println("Using BFA : " + _01_Using_Brute_Force_Approach(str));
 
 	}
 
