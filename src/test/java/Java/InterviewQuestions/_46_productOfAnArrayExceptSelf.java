@@ -42,14 +42,11 @@ public class _46_productOfAnArrayExceptSelf {
 			left[i] = arr[i - 1] * left[i - 1];
 		}
 		
-		System.out.println("left"+ Arrays.toString(left));
 		right[len - 1] = 1;
 		for (int i = len - 2; i >= 0; i--) {
 			right[i] = arr[i + 1] * right[i + 1];
 		}
-
-		System.out.println("right"+ Arrays.toString(right));
-		
+	
 		for (int i = 0; i < len; i++) {
 			prod[i] = left[i] * right[i];
 		}
