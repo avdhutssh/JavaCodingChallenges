@@ -10,10 +10,11 @@ public class _48_maximumConsecutiveOnesInarray {
 	}
 
 	private static int _01_Using_BruteForceApproach(int[] arr) {
-
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
 		int maxCount = 0;
 		int count = 0;
-		for (int i = 0; i < arr.length; i++) {	
+		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] == 1) {
 				count++;
 			} else {
