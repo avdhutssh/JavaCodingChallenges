@@ -14,7 +14,8 @@ public class _53_iterateThroughHashMap {
 
 		_01_Using_EntrySet(hm);
 		System.out.println("---------------------------");
-
+		_02_Using_KeySet(hm);
+		System.out.println("---------------------------");
 
 	}
 
@@ -28,4 +29,13 @@ public class _53_iterateThroughHashMap {
 
 	}
 
+	private static void _02_Using_KeySet(HashMap<String, String> hm) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+
+		for (String key : hm.keySet()) {
+			System.out.println("Key: " + key + ", Value: " + hm.get(key));
+		}
+
+	}
 }
