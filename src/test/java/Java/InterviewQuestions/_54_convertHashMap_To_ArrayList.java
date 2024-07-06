@@ -3,6 +3,7 @@ package Java.InterviewQuestions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class _54_convertHashMap_To_ArrayList {
 
@@ -15,6 +16,7 @@ public class _54_convertHashMap_To_ArrayList {
 
 		System.out.println(_01_Convert_KeysToArrayList(hm));
 		System.out.println(_02_Convert_ValuesToArrayList(hm));
+		System.out.println(_03_Convert_EntriesToArrayList(hm));
 
 	}
 
@@ -29,6 +31,13 @@ public class _54_convertHashMap_To_ArrayList {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
 		return new ArrayList<String>(hm.values());
+
+	}
+	
+	private static <K,V>List<Map.Entry<String,String>> _03_Convert_EntriesToArrayList(HashMap<String, String> hm) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		return new ArrayList<>(hm.entrySet());
 
 	}
 }
