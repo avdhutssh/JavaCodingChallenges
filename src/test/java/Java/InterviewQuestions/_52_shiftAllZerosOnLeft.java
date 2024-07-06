@@ -15,7 +15,7 @@ public class _52_shiftAllZerosOnLeft {
 	private static int[] _01_Using_BruteForceApproach(int[] arr) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
-		int index = arr.length-1;
+		int index = arr.length - 1;
 		int[] result = new int[arr.length];
 		for (int i = arr.length - 1; i >= 0; i--) {
 			if (arr[i] != 0) {
