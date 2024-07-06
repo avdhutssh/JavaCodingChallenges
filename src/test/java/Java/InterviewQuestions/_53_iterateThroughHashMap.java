@@ -1,6 +1,7 @@
 package Java.InterviewQuestions;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map.Entry;
 
 import org.apache.fontbox.cff.CharStringCommand.Key;
@@ -22,6 +23,7 @@ public class _53_iterateThroughHashMap {
 		System.out.println("---------------------------");
 		_04_Using_ForEach(hm);
 		System.out.println("---------------------------");
+		_05_Using_Iterator(hm);
 	}
 
 	private static void _01_Using_EntrySet(HashMap<String, String> hm) {
@@ -59,6 +61,16 @@ public class _53_iterateThroughHashMap {
 		// Space Complexity: O(1)
 
 		hm.forEach((Key, value) -> System.out.println("Key: " + Key + ", Value: " + value));
+	}
 
+	private static void _05_Using_Iterator(HashMap<String, String> hm) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+
+		Iterator<Entry<String, String>> it = hm.entrySet().iterator();
+		while (it.hasNext()) {
+			Entry<String, String> entry = it.next();
+			System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+		}
 	}
 }
