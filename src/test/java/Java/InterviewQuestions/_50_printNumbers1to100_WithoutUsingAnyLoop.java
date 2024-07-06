@@ -1,5 +1,6 @@
 package Java.InterviewQuestions;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class _50_printNumbers1to100_WithoutUsingAnyLoop {
@@ -10,6 +11,10 @@ public class _50_printNumbers1to100_WithoutUsingAnyLoop {
 		System.out.println("\n"
 				+ "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		_02_Using_Stream();
+		System.out.println("\n"
+				+ "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+		_03_Using_Array();
 		System.out.println("\n"
 				+ "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
@@ -26,7 +31,15 @@ public class _50_printNumbers1to100_WithoutUsingAnyLoop {
 
 	private static void _02_Using_Stream() {
 		// Time Complexity: O(n)
-		// Space Complexity: O(n)
+		// Space Complexity: O(1)
 		IntStream.rangeClosed(1, 100).forEach(n -> System.out.print(n + " "));
+	}
+
+	private static void _03_Using_Array() {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		int[] numbers = new int[100];
+		Arrays.setAll(numbers, i -> i + 1);
+		Arrays.stream(numbers).forEach(n -> System.out.print(n + " "));
 	}
 }
