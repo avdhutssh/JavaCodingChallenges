@@ -3,6 +3,8 @@ package Java.InterviewQuestions;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import org.apache.fontbox.cff.CharStringCommand.Key;
+
 public class _53_iterateThroughHashMap {
 
 	public static void main(String[] args) {
@@ -17,6 +19,8 @@ public class _53_iterateThroughHashMap {
 		_02_Using_KeySet(hm);
 		System.out.println("---------------------------");
 		_03_Using_Values(hm);
+		System.out.println("---------------------------");
+		_04_Using_ForEach(hm);
 		System.out.println("---------------------------");
 	}
 
@@ -47,6 +51,14 @@ public class _53_iterateThroughHashMap {
 		for (String value : hm.values()) {
 			System.out.println("Value: " + value);
 		}
+
+	}
+
+	private static void _04_Using_ForEach(HashMap<String, String> hm) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+
+		hm.forEach((Key, value) -> System.out.println("Key: " + Key + ", Value: " + value));
 
 	}
 }
