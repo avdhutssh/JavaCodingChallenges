@@ -37,6 +37,16 @@ public class _57_Graph_Removing_Edge {
 		return false;
 	}
 
+	public boolean removeVertex(String vertex) {
+		if (adjList.get(vertex) == null)
+			return false;
+		for (String otherVertexEdge : adjList.get(vertex)) {
+			adjList.get(otherVertexEdge).remove(vertex);
+		}
+		adjList.remove(vertex);
+		return true;
+	}
+
 	public static void main(String[] args) {
 
 		_57_Graph_Removing_Edge graph = new _57_Graph_Removing_Edge();
@@ -45,9 +55,10 @@ public class _57_Graph_Removing_Edge {
 		graph.addVertex("B");
 		graph.addEdge("A", "B");
 		graph.printGraph();
-
-		graph.removeEdge("A", "B");
+		
+		graph.removeVertex("A");
 		graph.printGraph();
+		
 	}
 
 }
