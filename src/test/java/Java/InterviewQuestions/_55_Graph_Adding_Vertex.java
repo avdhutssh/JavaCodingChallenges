@@ -12,6 +12,8 @@ public class _55_Graph_Adding_Vertex {
 	}
 
 	public boolean addVertex(String vertex) {
+		// Time Complexity: O(1)
+		// Space Complexity: O(1)
 		if (adjList.get(vertex) == null) {
 			adjList.put(vertex, new ArrayList<String>());
 			return true;

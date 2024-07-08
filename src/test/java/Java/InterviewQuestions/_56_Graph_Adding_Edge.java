@@ -12,6 +12,8 @@ public class _56_Graph_Adding_Edge {
 	}
 
 	public boolean addVertex(String vertex) {
+		// Time Complexity: O(1)
+		// Space Complexity: O(1)
 		if (adjList.get(vertex) == null) {
 			adjList.put(vertex, new ArrayList<String>());
 			return true;
@@ -20,6 +22,8 @@ public class _56_Graph_Adding_Edge {
 	}
 
 	public boolean addEdge(String vertex1, String vertex2) {
+		// Time Complexity: O(1)
+		// Space Complexity: O(1)
 		if (adjList.get(vertex1) != null && adjList.get(vertex2) != null) {
 			adjList.get(vertex1).add(vertex2);
 			adjList.get(vertex2).add(vertex1);
