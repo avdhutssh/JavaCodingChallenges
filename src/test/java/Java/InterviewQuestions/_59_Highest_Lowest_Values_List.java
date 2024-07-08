@@ -16,6 +16,7 @@ public class _59_Highest_Lowest_Values_List {
 
 		_01_Using_BruteForceApproach(list);
 		_02_Using_Collection_Methods(list);
+		_03_Using_Stream(list);
 	}
 
 	private static void _01_Using_BruteForceApproach(LinkedList<Integer> list) {
@@ -39,6 +40,16 @@ public class _59_Highest_Lowest_Values_List {
 		// Space Complexity: O(1)
 		int max = Collections.max(list);
 		int min = Collections.min(list);
+
+		System.out.println("Max: " + max + " Min: " + min);
+
+	}
+
+	private static void _03_Using_Stream(LinkedList<Integer> list) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int max = list.stream().max(Integer::compare).get();
+		int min = list.stream().min(Integer::compare).get();
 
 		System.out.println("Max: " + max + " Min: " + min);
 
