@@ -1,6 +1,7 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class _59_Highest_Lowest_Values_List {
@@ -14,6 +15,7 @@ public class _59_Highest_Lowest_Values_List {
 		// Max: 44 Min: 11
 
 		_01_Using_BruteForceApproach(list);
+		_02_Using_Collection_Methods(list);
 	}
 
 	private static void _01_Using_BruteForceApproach(LinkedList<Integer> list) {
@@ -32,4 +34,13 @@ public class _59_Highest_Lowest_Values_List {
 
 	}
 
+	private static void _02_Using_Collection_Methods(LinkedList<Integer> list) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int max = Collections.max(list);
+		int min = Collections.min(list);
+
+		System.out.println("Max: " + max + " Min: " + min);
+
+	}
 }
