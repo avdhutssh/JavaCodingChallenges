@@ -3,11 +3,11 @@ package Java.InterviewQuestions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _60_Heap_Insert {
+public class _60_Heap_Max_Insert {
 
 	private List<Integer> heap;
 
-	public _60_Heap_Insert() {
+	public _60_Heap_Max_Insert() {
 	        this.heap = new ArrayList<>();
 	    }
 
@@ -44,7 +44,7 @@ public class _60_Heap_Insert {
 	}
 
 	public static void main(String[] args) {
-		_60_Heap_Insert myHeap = new _60_Heap_Insert();
+		_60_Heap_Max_Insert myHeap = new _60_Heap_Max_Insert();
 		System.out.println(myHeap.getHeap());
         myHeap.insert(95);
         myHeap.insert(75);

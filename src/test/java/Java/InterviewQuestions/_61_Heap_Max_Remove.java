@@ -3,11 +3,11 @@ package Java.InterviewQuestions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _61_Heap_Remove {
+public class _61_Heap_Max_Remove {
 
 	private List<Integer> heap;
 
-	public _61_Heap_Remove() {
+	public _61_Heap_Max_Remove() {
 	        this.heap = new ArrayList<>();
 	    }
 
@@ -81,7 +81,7 @@ public class _61_Heap_Remove {
     }
     
 	public static void main(String[] args) {
-		_61_Heap_Remove myHeap = new _61_Heap_Remove();
+		_61_Heap_Max_Remove myHeap = new _61_Heap_Max_Remove();
         myHeap.insert(95);
         myHeap.insert(75);
         myHeap.insert(80);
