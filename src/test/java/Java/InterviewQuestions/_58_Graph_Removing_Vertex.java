@@ -3,7 +3,7 @@ package Java.InterviewQuestions;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class _57_Graph_Removing_Edge {
+public class _58_Graph_Removing_Vertex {
 
 	private HashMap<String, ArrayList<String>> adjList = new HashMap<>();
 
@@ -37,17 +37,26 @@ public class _57_Graph_Removing_Edge {
 		return false;
 	}
 
+	public boolean removeVertex(String vertex) {
+		if (adjList.get(vertex) == null)
+			return false;
+		for (String otherVertexEdge : adjList.get(vertex)) {
+			adjList.get(otherVertexEdge).remove(vertex);
+		}
+		adjList.remove(vertex);
+		return true;
+	}
 
 	public static void main(String[] args) {
 
-		_57_Graph_Removing_Edge graph = new _57_Graph_Removing_Edge();
+		_58_Graph_Removing_Vertex graph = new _58_Graph_Removing_Vertex();
 
 		graph.addVertex("A");
 		graph.addVertex("B");
 		graph.addEdge("A", "B");
 		graph.printGraph();
 		
-		graph.removeEdge("A","B");
+		graph.removeVertex("A");
 		graph.printGraph();
 		
 	}
