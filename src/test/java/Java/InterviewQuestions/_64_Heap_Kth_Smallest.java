@@ -85,6 +85,8 @@ public class _64_Heap_Kth_Smallest {
 	}
 
 	public static int findKthSmallest(int[] nums, int k) {
+		// Time Complexity: O(n log k), where n = number of elements in the array &  k = max heap stores up to elements at any time
+		// Space Complexity: O(1)
 		Heap maxHeap = new Heap();
 		for (int num : nums) {
 			maxHeap.insert(num);
