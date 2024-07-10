@@ -10,6 +10,9 @@ public class _66_Reverse_First_Half_Array {
 		System.out.println(Arrays.toString(_01_Using_BruteForceApproach(arr1)));
 		System.out.println(Arrays.toString(_01_Using_BruteForceApproach(arr2)));
 
+		System.out.println(Arrays.toString(_02_Using_Simple_Iteration_Temp(arr1)));
+		System.out.println(Arrays.toString(_02_Using_Simple_Iteration_Temp(arr2)));
+
 	}
 
 	private static int[] _01_Using_BruteForceApproach(int[] arr) {
@@ -18,7 +21,7 @@ public class _66_Reverse_First_Half_Array {
 		int[] result = new int[arr.length];
 		int mid = arr.length / 2;
 		int j = 0;
-		for (int i = mid-1; i >= 0; i--) {
+		for (int i = mid - 1; i >= 0; i--) {
 			result[j++] = arr[i];
 
 		}
@@ -28,4 +31,15 @@ public class _66_Reverse_First_Half_Array {
 		return result;
 	}
 
+	private static int[] _02_Using_Simple_Iteration_Temp(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int mid = arr.length / 2;
+		for (int i = 0; i < mid-1; i++) {
+			int temp = arr[i];
+			arr[i] = arr[mid - 1 - i];
+			arr[mid - 1 - i] = temp;
+		}
+		return arr;
+	}
 }
