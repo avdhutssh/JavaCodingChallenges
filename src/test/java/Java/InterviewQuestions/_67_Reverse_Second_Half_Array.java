@@ -1,6 +1,7 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 public class _67_Reverse_Second_Half_Array {
 
@@ -12,6 +13,7 @@ public class _67_Reverse_Second_Half_Array {
 		System.out.println("Using BFA : " + Arrays.toString(_01_Using_BruteForceApproach(arr2)));
 
 		System.out.println("Using Simple loop with temp : " + Arrays.toString(_02_Using_Simple_Iteration_Temp(arr1)));
+		System.out.println("Using Stack : " + Arrays.toString(_03_Using_Stack(arr2)));
 	}
 
 	private static int[] _01_Using_BruteForceApproach(int[] arr) {
@@ -29,7 +31,6 @@ public class _67_Reverse_Second_Half_Array {
 
 		}
 		return result;
-
 	}
 
 	private static int[] _02_Using_Simple_Iteration_Temp(int[] arr) {
@@ -47,4 +48,17 @@ public class _67_Reverse_Second_Half_Array {
 		return arr;
 	}
 
+	private static int[] _03_Using_Stack(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		Stack<Integer> stack = new Stack<Integer>();
+		int mid = arr.length / 2;
+		for (int i = mid; i < arr.length; i++) {
+			stack.push(arr[i]);
+		}
+		for (int i = mid; i < arr.length; i++) {
+			arr[i] = stack.pop();
+		}
+		return arr;
+	}
 }
