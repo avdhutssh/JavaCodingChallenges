@@ -10,20 +10,34 @@ public class _68_Reverse_Array_upto_Given_Position {
 
 		System.out.println("Using BFA : " + Arrays.toString(_01_Using_BruteForceApproach(arr1, 5)));
 		System.out.println("Using BFA : " + Arrays.toString(_01_Using_BruteForceApproach(arr2, 5)));
+
+		System.out
+				.println("Using Simple loop with temp : " + Arrays.toString(_02_Using_Simple_Iteration_Temp(arr1, 5)));
 	}
 
 	private static int[] _01_Using_BruteForceApproach(int[] arr, int position) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
 		int[] result = new int[arr.length];
-		int j = position-1;
+		int j = position - 1;
 		for (int i = 0; i < position; i++) {
 			result[i] = arr[j--];
 		}
-		for(int i = position; i<arr.length;i++) {
+		for (int i = position; i < arr.length; i++) {
 			result[i] = arr[i];
 		}
 		return result;
 	}
 
+	private static int[] _02_Using_Simple_Iteration_Temp(int[] arr, int position) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		for (int i = 0; i < position; i++) {
+			int temp = arr[i];
+			arr[i] = arr[position - 1];
+			arr[position - 1] = temp;
+		}
+
+		return arr;
+	}
 }
