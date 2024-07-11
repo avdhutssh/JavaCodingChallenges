@@ -10,10 +10,13 @@ public class _67_Reverse_Second_Half_Array {
 
 		System.out.println("Using BFA : " + Arrays.toString(_01_Using_BruteForceApproach(arr1)));
 		System.out.println("Using BFA : " + Arrays.toString(_01_Using_BruteForceApproach(arr2)));
+
+		System.out.println("Using Simple loop with temp : " + Arrays.toString(_02_Using_Simple_Iteration_Temp(arr1)));
 	}
 
 	private static int[] _01_Using_BruteForceApproach(int[] arr) {
-
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
 		int[] result = new int[arr.length];
 		int mid = arr.length / 2;
 		int j = mid;
@@ -28,4 +31,17 @@ public class _67_Reverse_Second_Half_Array {
 		return result;
 
 	}
+
+	private static int[] _02_Using_Simple_Iteration_Temp(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int mid = arr.length / 2;
+		for (int i = mid; i < mid + (arr.length - mid) / 2; i++) {
+			int temp = arr[i];
+			arr[i] = arr[arr.length - 1 - (i - mid)];
+			arr[arr.length - 1 - (i - mid)] = temp;
+		}
+		return arr;
+	}
+
 }
