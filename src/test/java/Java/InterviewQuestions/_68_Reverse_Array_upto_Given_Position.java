@@ -1,6 +1,7 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 public class _68_Reverse_Array_upto_Given_Position {
 
@@ -13,6 +14,8 @@ public class _68_Reverse_Array_upto_Given_Position {
 
 		System.out
 				.println("Using Simple loop with temp : " + Arrays.toString(_02_Using_Simple_Iteration_Temp(arr1, 5)));
+		
+		System.out.println("Using Stack : " + Arrays.toString(_03_Using_Stack(arr2, 5)));
 	}
 
 	private static int[] _01_Using_BruteForceApproach(int[] arr, int position) {
@@ -38,6 +41,19 @@ public class _68_Reverse_Array_upto_Given_Position {
 			arr[position - 1] = temp;
 		}
 
+		return arr;
+	}
+
+	private static int[] _03_Using_Stack(int[] arr, int position) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		Stack<Integer> stack = new Stack<Integer>();
+		for (int i = 0; i < position; i++) {
+			stack.push(arr[i]);
+		}
+		for (int i = 0; i < position; i++) {
+			arr[i] = stack.pop();
+		}
 		return arr;
 	}
 }
