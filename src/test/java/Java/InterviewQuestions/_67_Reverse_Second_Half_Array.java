@@ -36,10 +36,13 @@ public class _67_Reverse_Second_Half_Array {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
 		int mid = arr.length / 2;
-		for (int i = mid; i < mid + (arr.length - mid) / 2; i++) {
-			int temp = arr[i];
-			arr[i] = arr[arr.length - 1 - (i - mid)];
-			arr[arr.length - 1 - (i - mid)] = temp;
+		int j = mid;
+		for (int i = arr.length - 1; i > mid; i--) {
+			int temp = arr[j];
+			arr[j] = arr[i];
+			arr[i] = temp;
+			j++;
+
 		}
 		return arr;
 	}
