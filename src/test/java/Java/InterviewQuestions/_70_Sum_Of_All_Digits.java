@@ -5,6 +5,7 @@ public class _70_Sum_Of_All_Digits {
 	public static void main(String[] args) {
 		int num = 876; // 21
 		System.out.println("Using Iterative Method: " + _01_Using_Iterative_Method(num));
+		System.out.println("Using Recursion Method: " + _02_Using_Recursion(num));
 
 	}
 
@@ -20,4 +21,12 @@ public class _70_Sum_Of_All_Digits {
 		return sum;
 	}
 
+	private static int _02_Using_Recursion(int num) {
+		// Time Complexity: O(logn)
+		// Space Complexity: O(logn)
+		if (num == 0) {
+			return 0;
+		}
+		return num % 10 + _02_Using_Recursion(num / 10);
+	}
 }
