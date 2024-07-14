@@ -10,6 +10,10 @@ public class _73_Leader_Of_Array {
 		int[] arr = { 16, 17, 4, 3, 5, 2 }; // 17 5 2
 
 		_01_Using_Brute_Force_Approach(arr);
+		
+		System.out.println("\n"+"----------------------------");
+		
+		_02_Using_Pointer_Simple_Iteration(arr);
 
 	}
 
@@ -25,6 +29,21 @@ public class _73_Leader_Of_Array {
 				}
 			}
 			if (isLeader) {
+				System.out.print(arr[i] + " ");
+			}
+		}
+
+	}
+
+	private static void _02_Using_Pointer_Simple_Iteration(int[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		int n = arr.length;
+		int maxRight = arr[n - 1];
+		System.out.print("Using Pointer and Simple Iteration: " + maxRight + " ");
+		for (int i = n - 2; i >= 0; i--) {
+			if (arr[i] > maxRight) {
+				maxRight = arr[i];
 				System.out.print(arr[i]+" ");
 			}
 		}
