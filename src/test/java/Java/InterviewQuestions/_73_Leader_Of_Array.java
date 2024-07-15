@@ -1,5 +1,9 @@
 package Java.InterviewQuestions;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Stack;
 
 public class _73_Leader_Of_Array {
@@ -12,12 +16,16 @@ public class _73_Leader_Of_Array {
 		int[] arr = { 16, 17, 4, 3, 5, 2 }; // 17 5 2
 
 		_01_Using_Brute_Force_Approach(arr);
-		System.out.println("\n" + "----------------------------");
+		System.out.println("\n" + "----------------------------------");
 
 		_02_Using_Pointer_Simple_Iteration(arr);
-		System.out.println("\n" + "----------------------------");
+		System.out.println("\n" + "----------------------------------");
 
 		System.out.println("Using Stack: " + _03_Using_Stack(arr));
+
+		System.out.println("----------------------------------");
+
+		System.out.println("Using Max Heap: " + _04_Using_Heap(arr));
 
 	}
 
@@ -65,5 +73,20 @@ public class _73_Leader_Of_Array {
 
 		}
 		return stack;
+	}
+
+	private static List<Integer> _04_Using_Heap(int[] arr) {
+		// Time Complexity: O(nlogn)
+		// Space Complexity: O(n)
+		List<Integer> leader = new ArrayList<Integer>();
+		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+		for (int i = arr.length - 1; i >= 0; i--) {
+			if (maxHeap.isEmpty() || arr[i] > maxHeap.peek()) {
+				leader.add(arr[i]);
+			}
+			maxHeap.offer(arr[i]);
+
+		}
+		return leader;
 	}
 }
