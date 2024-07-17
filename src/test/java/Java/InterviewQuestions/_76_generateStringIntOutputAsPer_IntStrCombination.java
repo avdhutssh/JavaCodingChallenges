@@ -12,6 +12,7 @@ public class _76_generateStringIntOutputAsPer_IntStrCombination {
 		String str = "aabbBCccD"; // a2b3c3d1
 
 		System.out.println("Using HashMap : " + _01_Using_HashMap(str));
+		System.out.println("Using Array : " + _02_Using_Array(str));
 
 	}
 
@@ -32,6 +33,25 @@ public class _76_generateStringIntOutputAsPer_IntStrCombination {
 			}
 		}
 		return result;
+	}
+
+	private static String _02_Using_Array(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		str = str.toLowerCase();
+		int[] freq = new int[128];
+		for (char ch : str.toCharArray()) {
+			freq[ch]++;
+		}
+		boolean[] added = new boolean[128];
+		StringBuilder result = new StringBuilder();
+		for (char ch : str.toCharArray()) {
+			if (!added[ch]) {
+				result.append(ch).append(freq[ch]);
+				added[ch]=true;
+			}
+		}
+		return result.toString();
 	}
 
 }
