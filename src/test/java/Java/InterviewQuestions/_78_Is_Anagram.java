@@ -1,6 +1,7 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class _78_Is_Anagram {
 
@@ -23,6 +24,12 @@ public class _78_Is_Anagram {
 		System.out.println(_03_Using_Frequenecy_Array("cat", "dog")); // false
 		System.out.println(_03_Using_Frequenecy_Array("Happy", "hapy")); // false
 		System.out.println(_03_Using_Frequenecy_Array("Happy", "hapyy")); // false
+
+		System.out.println("\n" + "Using HashMap");
+		System.out.println(_04_Using_HashMap("Race", "Care")); // true
+		System.out.println(_04_Using_HashMap("cat", "dog")); // false
+		System.out.println(_04_Using_HashMap("Happy", "hapy")); // false
+		System.out.println(_04_Using_HashMap("Happy", "hapyy")); // false
 	}
 
 	private static boolean _01_Using_Brute_Force_Approach(String str1, String str2) {
@@ -85,11 +92,38 @@ public class _78_Is_Anagram {
 			charCount[ch - 'a']--;
 		}
 
-		for(int count : charCount) {
-			if(count!=0) {
+		for (int count : charCount) {
+			if (count != 0) {
 				return false;
 			}
 		}
 		return true;
+	}
+
+	private static boolean _04_Using_HashMap(String str1, String str2) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		if (str1.length() != str2.length()) {
+			return false;
+		}
+
+		str1 = str1.toLowerCase();
+		str2 = str2.toLowerCase();
+
+		HashMap<Character, Integer> hm = new HashMap<>();
+		for (char ch : str1.toCharArray()) {
+			hm.put(ch, hm.getOrDefault(hm, 0) + 1);
+		}
+		for (char ch : str2.toCharArray()) {
+			if (!hm.containsKey(ch)) {
+				return false;
+			}
+			hm.put(ch, hm.get(ch) - 1);
+			if (hm.get(ch) == 0) {
+				hm.remove(ch);
+			}
+		}
+
+		return hm.isEmpty();
 	}
 }
