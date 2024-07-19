@@ -17,6 +17,12 @@ public class _78_Is_Anagram {
 		System.out.println(_02_Using_Sorting("cat", "dog")); // false
 		System.out.println(_02_Using_Sorting("Happy", "hapy")); // false
 		System.out.println(_02_Using_Sorting("Happy", "hapyy")); // false
+
+		System.out.println("\n" + "Using Frequency Array");
+		System.out.println(_03_Using_Frequenecy_Array("Race", "Care")); // true
+		System.out.println(_03_Using_Frequenecy_Array("cat", "dog")); // false
+		System.out.println(_03_Using_Frequenecy_Array("Happy", "hapy")); // false
+		System.out.println(_03_Using_Frequenecy_Array("Happy", "hapyy")); // false
 	}
 
 	private static boolean _01_Using_Brute_Force_Approach(String str1, String str2) {
@@ -55,9 +61,35 @@ public class _78_Is_Anagram {
 
 		char[] str1Arr = str1.toLowerCase().toCharArray();
 		char[] str2Arr = str2.toLowerCase().toCharArray();
-		
+
 		Arrays.sort(str1Arr);
 		Arrays.sort(str2Arr);
 		return Arrays.equals(str1Arr, str2Arr);
+	}
+
+	private static boolean _03_Using_Frequenecy_Array(String str1, String str2) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		if (str1.length() != str2.length()) {
+			return false;
+		}
+
+		str1 = str1.toLowerCase();
+		str2 = str2.toLowerCase();
+
+		int[] charCount = new int[26];
+		for (char ch : str1.toCharArray()) {
+			charCount[ch - 'a']++;
+		}
+		for (char ch : str2.toCharArray()) {
+			charCount[ch - 'a']--;
+		}
+
+		for(int count : charCount) {
+			if(count!=0) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
