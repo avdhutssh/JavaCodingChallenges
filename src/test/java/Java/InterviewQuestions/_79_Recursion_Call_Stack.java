@@ -1,12 +1,11 @@
 package Java.InterviewQuestions;
 
 public class _79_Recursion_Call_Stack {
+	// Time Complexity: O(1)
+	// Space Complexity: O(1)
 
 	public static void main(String[] args) {
-		// Time Complexity: O(1)
-		// Space Complexity: O(1)
 		method_One();
-
 	}
 
 	private static void method_One() {
