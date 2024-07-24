@@ -1,14 +1,17 @@
 package Java.InterviewQuestions;
 
+import java.util.stream.IntStream;
+
 public class _80_Factorial_OF_Number {
 
 	public static void main(String[] args) {
 
 		int num = 5; // 120
+
 		System.out.println("Using Recursion: " + _01_Using_Recursion(num));
 		System.out.println("Using While Loop: " + _02_Using_While_Loop_Iteration(num));
 		System.out.println("Using For Loop: " + _03_Using_For_Loop_Iteration(num));
-
+		System.out.println("Using Stream: " + _04_Using_Stream(num));
 	}
 
 	private static int _01_Using_Recursion(int num) {
@@ -42,5 +45,12 @@ public class _80_Factorial_OF_Number {
 			num *= i;
 		}
 		return num;
+	}
+
+	private static int _04_Using_Stream(int num) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+
+		return IntStream.rangeClosed(1, num).reduce(1, (a, b) -> a * b);
 	}
 }
