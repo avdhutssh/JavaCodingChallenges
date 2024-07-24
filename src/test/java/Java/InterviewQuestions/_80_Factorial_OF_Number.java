@@ -6,7 +6,8 @@ public class _80_Factorial_OF_Number {
 
 		int num = 5; // 120
 		System.out.println("Using Recursion: " + _01_Using_Recursion(num));
-		System.out.println("Using While Loop: " + _02_Using_While_Iteration(num));
+		System.out.println("Using While Loop: " + _02_Using_While_Loop_Iteration(num));
+		System.out.println("Using For Loop: " + _03_Using_For_Loop_Iteration(num));
 
 	}
 
@@ -19,7 +20,7 @@ public class _80_Factorial_OF_Number {
 		return num * _01_Using_Recursion(num - 1);
 	}
 
-	private static int _02_Using_While_Iteration(int num) {
+	private static int _02_Using_While_Loop_Iteration(int num) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
 		int factorial = 1;
@@ -28,5 +29,18 @@ public class _80_Factorial_OF_Number {
 			num -= 1;
 		}
 		return factorial;
+	}
+
+	private static int _03_Using_For_Loop_Iteration(int num) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+//		int factorial = 1;
+//		for (int i = 1; i <= num; i++) {
+//			factorial *= i;
+//		}
+		for (int i = num - 1; i >= 1; i--) {
+			num *= i;
+		}
+		return num;
 	}
 }
