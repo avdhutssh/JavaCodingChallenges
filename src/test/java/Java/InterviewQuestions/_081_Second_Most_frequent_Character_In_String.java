@@ -1,10 +1,12 @@
 package Java.InterviewQuestions;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.PriorityQueue;
 
 public class _081_Second_Most_frequent_Character_In_String {
 
@@ -21,6 +23,9 @@ public class _081_Second_Most_frequent_Character_In_String {
 
 		System.out.println("Using Array and Passes: " + _03_Using_Two_Passes_Array(str1));
 		System.out.println("Using Array and Passes: " + _03_Using_Two_Passes_Array(str2));
+
+		System.out.println("Using Max Heap: " + _04_Using_Heap(str1));
+		System.out.println("Using Max Heap: " + _04_Using_Heap(str2));
 	}
 
 	private static char _01_Using_HashMap(String str) {
@@ -88,6 +93,20 @@ public class _081_Second_Most_frequent_Character_In_String {
 			}
 		}
 		return 0;
+
+	}
+
+	private static char _04_Using_Heap(String str) {
+		// Time Complexity: O(nlogn)
+		// Space Complexity: O(n)
+		HashMap<Character, Integer> hm = new HashMap<>();
+		for (char ch : str.toCharArray()) {
+			hm.put(ch, hm.getOrDefault(ch, 0) + 1);
+		}
+		PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<>((e1, e2) -> e2.getValue() - e1.getValue());
+		maxHeap.addAll(hm.entrySet());
+		maxHeap.poll();
+		return maxHeap.poll().getKey();
 
 	}
 }
