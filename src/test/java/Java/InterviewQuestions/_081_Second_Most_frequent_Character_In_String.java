@@ -13,11 +13,14 @@ public class _081_Second_Most_frequent_Character_In_String {
 		String str1 = "aabababa"; // b
 		String str2 = "abcd"; // 0
 
-		System.out.println(_01_Using_HashMap(str1));
-		System.out.println(_01_Using_HashMap(str2));
+		System.out.println("Using HashMap: " + _01_Using_HashMap(str1));
+		System.out.println("Using HashMap: " + _01_Using_HashMap(str2));
 
-		System.out.println(_02_Using_HashMap_And_Sorting(str1));
-		System.out.println(_02_Using_HashMap_And_Sorting(str2));
+		System.out.println("Using HashMap and Sorting: " + _02_Using_HashMap_And_Sorting(str1));
+		System.out.println("Using HashMap and Sorting: " + _02_Using_HashMap_And_Sorting(str2));
+
+		System.out.println("Using Array and Passes: " + _03_Using_Two_Passes_Array(str1));
+		System.out.println("Using Array and Passes: " + _03_Using_Two_Passes_Array(str2));
 	}
 
 	private static char _01_Using_HashMap(String str) {
@@ -55,12 +58,36 @@ public class _081_Second_Most_frequent_Character_In_String {
 		}
 		List<Map.Entry<Character, Integer>> sortedEntries = new ArrayList<>(hm.entrySet());
 		sortedEntries.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue()));
-		if(sortedEntries.size()>1) {
+		if (sortedEntries.size() > 1) {
 			return sortedEntries.get(1).getKey();
-		}else {
+		} else {
 			throw new IllegalArgumentException("No second most frequent character found.");
 		}
 
 	}
 
+	private static char _03_Using_Two_Passes_Array(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		int[] charCount = new int[256];
+		for (char c : str.toCharArray()) {
+			charCount[c]++;
+		}
+		int firstMax = 0, secondMax = 0;
+		for (int count : charCount) {
+			if (count > firstMax) {
+				secondMax = firstMax;
+				firstMax = count;
+			} else if (count > secondMax && count < firstMax) {
+				secondMax = count;
+			}
+		}
+		for (char c : str.toCharArray()) {
+			if (charCount[c] == secondMax) {
+				return c;
+			}
+		}
+		return 0;
+
+	}
 }
