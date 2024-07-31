@@ -1,7 +1,6 @@
 package Java.InterviewQuestions;
 
 public class _084_Replace_SubString_With_Other_String {
-
 	public static void main(String[] args) {
 		String str1 = "Learn Lead and Succeed in Efforts";
 		String toBeReplaced = "in";
@@ -13,7 +12,6 @@ public class _084_Replace_SubString_With_Other_String {
 		System.out.println("Using indexOf method: " + _04_Using_IndexOf_Method(str1, toBeReplaced, toReplacedWith));
 
 	}
-
 	private static String _01_Using_Array(String str, String toBeReplaced, String toReplacedWith) {
 		// Time Complexity: O(n+k)
 		// Space Complexity: O(n)
