@@ -1,5 +1,7 @@
 package Java.InterviewQuestions;
 
+import java.util.StringTokenizer;
+
 public class _085_Count_Number_Words_String {
 
 	public static void main(String[] args) {
@@ -7,6 +9,8 @@ public class _085_Count_Number_Words_String {
 
 		System.out.println("Using Trim and Split method: " + _01_Using_Split_Method(str));
 		System.out.println("Using Iteration: " + _02_Using_Iteration(str));
+		System.out.println("Using StringTokenizer: " + _03_Using_StringTokenizer(str));
+		
 	}
 
 	private static int _01_Using_Split_Method(String str) {
@@ -36,5 +40,13 @@ public class _085_Count_Number_Words_String {
 			}
 		}
 		return wordCount;
+	}
+	
+	private static int _03_Using_StringTokenizer(String str){
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		StringTokenizer st = new StringTokenizer(str);
+		return st.countTokens();
+		
 	}
 }
