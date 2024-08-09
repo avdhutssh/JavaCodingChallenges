@@ -17,7 +17,7 @@ public class _087_Remove_Duplicates_From_String {
 
 	private static String _01_Using_BruteForceApproach(char[] str) {
 		// Time Complexity: O(n^2)
-		// Space Complexity: O(n)a
+		// Space Complexity: O(n)
 		int index = 0;
 		for (int i = 0; i < str.length; i++) {
 			int j;
