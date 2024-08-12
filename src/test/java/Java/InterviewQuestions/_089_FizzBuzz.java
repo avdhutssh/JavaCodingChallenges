@@ -12,6 +12,8 @@ public class _089_FizzBuzz {
 	}
 
 	private static void _01_Using_BruteForceApproach(int num) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
 		for (int i = 1; i <= num; i++) {
 			if (i % 3 == 0 && i % 5 == 0) {
 				System.out.print("FizzBuzz ");
