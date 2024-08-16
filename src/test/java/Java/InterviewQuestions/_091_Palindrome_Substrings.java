@@ -6,9 +6,10 @@ public class _091_Palindrome_Substrings {
 
 		String str = "abaaa"; // a aa aaa aba b
 		_01_UsingBruteForceApproach(str);
-		System.out.println("\n"+"--------------------------------");
+		System.out.println("\n" + "--------------------------------");
 		_02_Using_Dynamic_Programming(str);
-
+		System.out.println("\n" + "--------------------------------");
+		_03_Using_ExpandAroundCenterApproach(str);
 	}
 
 	private static void _01_UsingBruteForceApproach(String str) {
@@ -52,7 +53,7 @@ public class _091_Palindrome_Substrings {
 			System.out.print(str.charAt(i) + " ");
 		}
 
-		for (int i = 0; i < n-1; i++) {
+		for (int i = 0; i < n - 1; i++) {
 			if (str.charAt(i) == str.charAt(i + 1)) {
 				dp[i][i + 1] = true;
 				System.out.print(str.charAt(i) + "" + str.charAt(i + 1) + " ");
@@ -71,4 +72,25 @@ public class _091_Palindrome_Substrings {
 
 		}
 	}
+
+	private static void _03_Using_ExpandAroundCenterApproach(String str) {
+		// Time complexity: O(n^2)
+		// Space complexity: O(1)
+		System.out.print("Using Expand Around Center Approach: ");
+		for (int i = 0; i < str.length(); i++) {
+			expandAroundCenter(str, i, i);
+			expandAroundCenter(str, i, i + 1);
+		}
+
+	}
+
+	private static void expandAroundCenter(String str, int left, int right) {
+		while (left >= 0 && right < str.length() && str.charAt(left) == str.charAt(right)) {
+			System.out.print(str.substring(left, right + 1) + " ");
+			left--;
+			right++;
+		}
+
+	}
+
 }
