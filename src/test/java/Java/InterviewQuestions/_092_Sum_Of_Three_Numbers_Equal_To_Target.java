@@ -1,6 +1,7 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class _092_Sum_Of_Three_Numbers_Equal_To_Target {
 
@@ -9,6 +10,7 @@ public class _092_Sum_Of_Three_Numbers_Equal_To_Target {
 		int target = 21;
 		_01_Using_BruteForceApproach(arr, target);
 		_02_Using_TwoPointerApproach_Sorting(arr, target);
+		_03_Using_HashSet(arr, target);
 
 	}
 
@@ -49,6 +51,23 @@ public class _092_Sum_Of_Three_Numbers_Equal_To_Target {
 				}
 			}
 
+		}
+	}
+
+	private static void _03_Using_HashSet(int[] arr, int target) {
+		// Time complexity: O(n^2)
+		// Space complexity: O(n)
+		System.out.println("Using HashSet: ");
+		for (int i = 0; i < arr.length; i++) {
+			HashSet<Integer> hs = new HashSet<>();
+			int currentSum = target - arr[i];
+
+			for (int j = i + 1; j < arr.length; j++) {
+				if (hs.contains(currentSum - arr[j])) {
+					System.out.println(arr[i] + " " + arr[j] + " " + (currentSum - arr[j]));
+				}
+				hs.add(arr[j]);
+			}
 		}
 	}
 }
