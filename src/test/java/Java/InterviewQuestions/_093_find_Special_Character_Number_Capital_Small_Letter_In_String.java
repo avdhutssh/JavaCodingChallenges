@@ -12,6 +12,8 @@ public class _093_find_Special_Character_Number_Capital_Small_Letter_In_String {
 		_01_Using_BruteForceApproach(str);
 		System.out.println("------------------------------------");
 		_02_Using_ASCII_Values(str);
+		System.out.println("------------------------------------");
+		_03_Using_BuiltIn_Methods(str);
 
 	}
 
@@ -60,6 +62,28 @@ public class _093_find_Special_Character_Number_Capital_Small_Letter_In_String {
 		System.out.println("Lower case letters : " + lower);
 		System.out.println("Number : " + number);
 		System.out.println("Special characters : " + special);
+	}
+	
+	private static void _03_Using_BuiltIn_Methods(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		System.out.println("Using BuiltIn Methods: ");
+		int upper = 0, lower = 0, number = 0, special = 0;
+		for (char ch : str.toCharArray()) {
+			if (Character.isUpperCase(ch)) {
+				upper++;
+			} else if (Character.isLowerCase(ch)) {
+				lower++;
+			} else if (Character.isDigit(ch)) {
+				number++;
+			} else {
+				special++;
+			}
+		}
 
+		System.out.println("Upper case letters : " + upper);
+		System.out.println("Lower case letters : " + lower);
+		System.out.println("Number : " + number);
+		System.out.println("Special characters : " + special);
 	}
 }
