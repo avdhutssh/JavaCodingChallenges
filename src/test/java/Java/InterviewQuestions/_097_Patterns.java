@@ -13,7 +13,8 @@ public class _097_Patterns {
 //			3. What do you need to print (* or numbers)
 //			4. For number patterns , try not to use 0 as index for loop
 
-		pattern1(5);
+//		pattern1(5);
+		pattern2(5);
 
 	}
 
@@ -21,11 +22,18 @@ public class _097_Patterns {
 		for (int row = 1; row <= n; row++) {
 			for (int col = 1; col <= n; col++) {
 				System.out.print("* ");
-
 			}
 			System.out.println();
 		}
-
 	}
 
+	private static void pattern2(int n) {
+		for (int row = 1; row <= n; row++) {
+			for (int col = 1; col <= row; col++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+	
 }
