@@ -23,7 +23,8 @@ public class _097_Patterns {
 //		pattern8(5);
 //		pattern9(5);
 //		pattern10(5);
-		pattern11(5);
+//		pattern11(5);
+		pattern12(5);
 
 	}
 
@@ -139,6 +140,20 @@ public class _097_Patterns {
 				System.out.print(" ");
 			}
 			for (int col = 1; col <= n - row + 1; col++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+
+	private static void pattern12(int n) {
+		for (int row = 1; row <= 2 * n - 1; row++) {
+			int spaceTotal = row > n ? 2 * n - row - 1 : row - 1;
+			int colTotal = row > n ? row - n + 1 : n - row + 1;
+			for (int space = 1; space <= spaceTotal; space++) {
+				System.out.print(" ");
+			}
+			for (int col = 1; col <= colTotal; col++) {
 				System.out.print("* ");
 			}
 			System.out.println();
