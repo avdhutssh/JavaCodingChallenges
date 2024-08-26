@@ -14,7 +14,9 @@ public class _097_Patterns {
 //			4. For number patterns , try not to use 0 as index for loop
 
 //		pattern1(5);
-		pattern2(5);
+//		pattern2(5);
+//		pattern3(5);
+		pattern4(5);
 
 	}
 
@@ -35,5 +37,15 @@ public class _097_Patterns {
 			System.out.println();
 		}
 	}
-	
+
+	private static void pattern3(int n) {
+		for (int row = 1; row <= n; row++) {
+			for (int col = 1; col <= n - row + 1; col++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+
+
 }
