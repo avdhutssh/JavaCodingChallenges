@@ -24,7 +24,8 @@ public class _097_Patterns {
 //		pattern9(5);
 //		pattern10(5);
 //		pattern11(5);
-		pattern12(5);
+//		pattern12(5);
+		pattern13(5);
 
 	}
 
@@ -155,6 +156,22 @@ public class _097_Patterns {
 			}
 			for (int col = 1; col <= colTotal; col++) {
 				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+
+	private static void pattern13(int n) {
+		for (int row = 1; row <= n; row++) {
+			for (int space = 1; space <= n - row; space++) {
+				System.out.print(" ");
+			}
+			for (int col = 1; col <= 2 * row - 1; col++) {
+				if (col == 1 || col == 2 * row - 1 || row == n) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
 			}
 			System.out.println();
 		}
