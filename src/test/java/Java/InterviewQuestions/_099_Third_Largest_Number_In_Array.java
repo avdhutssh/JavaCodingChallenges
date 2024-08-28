@@ -14,6 +14,8 @@ public class _099_Third_Largest_Number_In_Array {
 	}
 
 	private static int _01_Using_Linear_Scan(int[] arr) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
 		if (arr.length < 2) {
 			throw new IllegalArgumentException("Array must contains atleast 3 elements");
 		}
