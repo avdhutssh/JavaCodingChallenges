@@ -1,13 +1,16 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
 
 public class _099_Third_Largest_Number_In_Array {
 
 	public static void main(String[] args) {
-		int[] arr1 = { 2, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; // 10
+		int[] arr1 = { 2, 100, 10, 100, 5, 10, 11, 5, 11, 2 }; // 10
 		int[] arr2 = { 2, 100, 10, 50, 300 }; // 50
-		int[] arr3 = { 2, 100, 10, 100, 2, 10, 11, 2, 11, 2 }; // 10
+		int[] arr3 = { 2, 100, 10, 100, 5, 10, 11, 5, 11, 2 }; // 10
 		int[] arr4 = { 2, 100, 10, 50, 300 }; // 50
 
 		System.out.println("Using Linear Scan: " + _01_Using_Linear_Scan(arr1));
@@ -15,6 +18,9 @@ public class _099_Third_Largest_Number_In_Array {
 
 		System.out.println("By Sorting the Array: " + _02_By_Sorting_Array(arr1));
 		System.out.println("By Sorting the Array: " + _02_By_Sorting_Array(arr2));
+
+		System.out.println("Using Priority Queue: " + _03_Using_PriorityQueue(arr1));
+		System.out.println("Using Priority Queue: " + _03_Using_PriorityQueue(arr2));
 	}
 
 	private static int _01_Using_Linear_Scan(int[] arr) {
@@ -50,7 +56,7 @@ public class _099_Third_Largest_Number_In_Array {
 		for (int i = arr.length - 1; i >= 0; i--) {
 			if (arr[i - 1] != arr[i]) {
 				uniqueCount++;
-				thirdLargest=arr[i];
+				thirdLargest = arr[i];
 			}
 			if (uniqueCount == 3) {
 				return thirdLargest;
@@ -59,4 +65,29 @@ public class _099_Third_Largest_Number_In_Array {
 		throw new IllegalArgumentException("No Second Largest element");
 
 	}
+
+	private static int _03_Using_PriorityQueue(int[] arr) {
+		// Time complexity:O(n) =>  O(nlogk) as k= 3 -> O(nlog3) > O(n)
+		// Space complexity: O(n)
+		if (arr == null || arr.length < 3) {
+			throw new IllegalArgumentException("Array should have at least 3 elements");
+		}
+
+		Set<Integer> uniqueNumbers = new HashSet<>();
+		PriorityQueue<Integer> minHeap = new PriorityQueue<>(3);
+
+		for (int num : arr) {
+			if (uniqueNumbers.add(num)) {
+				if (minHeap.size() < 3) {
+					minHeap.offer(num);
+				} else if (num > minHeap.peek()) {
+					minHeap.poll();
+					minHeap.offer(num);
+				}
+			}
+		}
+		return minHeap.peek();
+
+	}
+
 }
