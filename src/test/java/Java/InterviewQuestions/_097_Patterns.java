@@ -32,7 +32,8 @@ public class _097_Patterns {
 //		pattern17(5);
 //		pattern18(5);
 //		pattern19(5);
-		pattern20(5);
+//		pattern20(5);
+		pattern21(5);
 
 	}
 
@@ -303,4 +304,16 @@ public class _097_Patterns {
 
 	}
 
+	private static void pattern21(int n) {
+		// Floyd's triangle
+		int count = 1;
+		for (int row = 1; row <= n; row++) {
+			for (int col = 0; col < row; col++) {
+				System.out.print(count + " ");
+				count++;
+			}
+			System.out.println();
+		}
+
+	}
 }
