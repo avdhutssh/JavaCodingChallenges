@@ -33,7 +33,8 @@ public class _097_Patterns {
 //		pattern18(5);
 //		pattern19(5);
 //		pattern20(5);
-		pattern21(5);
+//		pattern21(5);
+		pattern22(5);
 
 	}
 
@@ -311,6 +312,21 @@ public class _097_Patterns {
 			for (int col = 0; col < row; col++) {
 				System.out.print(count + " ");
 				count++;
+			}
+			System.out.println();
+		}
+
+	}
+
+	private static void pattern22(int n) {
+		for (int row = 1; row <= n; row++) {
+			for (int col = 0; col < row; col++) {
+				if ((row + col) % 2 == 1) {
+					System.out.print("1 ");
+				} else {
+					System.out.print("0 ");
+				}
+
 			}
 			System.out.println();
 		}
