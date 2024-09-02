@@ -34,7 +34,8 @@ public class _097_Patterns {
 //		pattern19(5);
 //		pattern20(5);
 //		pattern21(5);
-		pattern22(5);
+//		pattern22(5);
+		pattern26(6);
 
 	}
 
@@ -327,6 +328,16 @@ public class _097_Patterns {
 					System.out.print("0 ");
 				}
 
+			}
+			System.out.println();
+		}
+
+	}
+
+	private static void pattern26(int n) {
+		for (int row = 1; row <= n; row++) {
+			for (int col = 0; col < n - row + 1; col++) {
+				System.out.print(row+" ");
 			}
 			System.out.println();
 		}
