@@ -35,7 +35,8 @@ public class _097_Patterns {
 //		pattern20(5);
 //		pattern21(5);
 //		pattern22(5);
-		pattern26(6);
+		pattern23(3);
+//		pattern26(6);
 
 	}
 
@@ -334,10 +335,30 @@ public class _097_Patterns {
 
 	}
 
+	private static void pattern23(int n) {
+		// Incorrect
+        int rows = n;
+        int columns = n*n;
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if ((i == 0 && (j == 3 || j == 7)) ||
+                    (i == 1 && (j == 2 || j == 5 || j == 8)) ||
+                    (i == 2 && (j == 1 || j == 4 || j == 7 || j == 8))) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
 	private static void pattern26(int n) {
 		for (int row = 1; row <= n; row++) {
 			for (int col = 0; col < n - row + 1; col++) {
-				System.out.print(row+" ");
+				System.out.print(row + " ");
 			}
 			System.out.println();
 		}
