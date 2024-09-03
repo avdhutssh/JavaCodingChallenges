@@ -336,15 +336,13 @@ public class _097_Patterns {
 	}
 
 	private static void pattern23(int n) {
-		// Incorrect
-        int rows = n;
-        int columns = n*n;
+        int totalPossibleCol = n*n*n;
         
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                if ((i == 0 && (j == 3 || j == 7)) ||
-                    (i == 1 && (j == 2 || j == 5 || j == 8)) ||
-                    (i == 2 && (j == 1 || j == 4 || j == 7 || j == 8))) {
+        for (int row = 1; row <= n; row++) {
+            for (int col = 0; col < totalPossibleCol; col++) {
+                if ((row == 1 && (col == 3 || col == 7)) ||
+                    (row == 2 && (col == 2 || col == 4 || col == 6|| col == 8)) ||
+                    (row == 3 && (col == 1 || col == 5 || col == 9))) {
                     System.out.print("*");
                 } else {
                     System.out.print(" ");
