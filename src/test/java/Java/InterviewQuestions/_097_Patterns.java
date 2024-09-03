@@ -35,7 +35,7 @@ public class _097_Patterns {
 //		pattern20(5);
 //		pattern21(5);
 //		pattern22(5);
-		pattern23(3);
+		pattern23(5);
 //		pattern26(6);
 
 	}
@@ -336,21 +336,20 @@ public class _097_Patterns {
 	}
 
 	private static void pattern23(int n) {
-        int totalPossibleCol = n*n*n;
-        
-        for (int row = 1; row <= n; row++) {
-            for (int col = 0; col < totalPossibleCol; col++) {
-                if ((row == 1 && (col == 3 || col == 7)) ||
-                    (row == 2 && (col == 2 || col == 4 || col == 6|| col == 8)) ||
-                    (row == 3 && (col == 1 || col == 5 || col == 9))) {
-                    System.out.print("*");
-                } else {
-                    System.out.print(" ");
-                }
-            }
-            System.out.println();
-        }
-    }
+	       int totalColumns = 4 * n - 3;
+	        
+	        for (int row = 1; row <= n; row++) {
+	            for (int col = 1; col <= totalColumns; col++) {
+	                // Calculate positions based on row number
+	                if (col == n + 1 - row || col == n - 1 + row || col == totalColumns + 1 - (n - 1 + row) || col == totalColumns + 1 - (n + 1 - row)) {
+	                    System.out.print("*");
+	                } else {
+	                    System.out.print(" ");
+	                }
+	            }
+	            System.out.println();
+	        }
+	    }
 
 
 	private static void pattern26(int n) {
