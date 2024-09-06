@@ -35,7 +35,10 @@ public class _097_Patterns {
 //		pattern20(5);
 //		pattern21(5);
 //		pattern22(5);
-		pattern23(5);
+//		pattern23(5);   
+                pattern24(5);
+
+
 //		pattern26(6);
 
 	}
