@@ -12,6 +12,8 @@ public class _100_Sorting_Sentence {
 	}
 
 	private static String _01_Using_BruteForceApproach(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
 		String result = "";
 		String[] strArr = str.split("\\s+");
 		String[] resultArr = new String[strArr.length];
