@@ -9,6 +9,9 @@ public class _100_Sorting_Sentence {
 		System.out.println("Using BFA: " + _01_Using_BruteForceApproach(str1));
 		System.out.println("Using BFA: " + _01_Using_BruteForceApproach(str2));
 
+		System.out.println("Using Optimized Approach: " + _02_Using_OptimizedApproach(str1));
+		System.out.println("Using Optimized Approach: " + _02_Using_OptimizedApproach(str2));
+
 	}
 
 	private static String _01_Using_BruteForceApproach(String str) {
@@ -25,6 +28,19 @@ public class _100_Sorting_Sentence {
 			result += s + " ";
 		}
 		return result;
+	}
+
+	private static String _02_Using_OptimizedApproach(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		String[] words = str.split("\\s+");
+		String[] bucket = new String[words.length];
+		for (String word : words) {
+			int index = Character.getNumericValue(word.charAt(word.length() - 1)) - 1;
+			bucket[index] = word.substring(0, word.length() - 1);
+
+		}
+		return String.join(" ", bucket);
 	}
 
 }
