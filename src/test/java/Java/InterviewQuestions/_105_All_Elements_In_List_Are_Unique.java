@@ -18,6 +18,10 @@ public class _105_All_Elements_In_List_Are_Unique {
 
 		System.out.println("Using Stream: " + _02_Using_Stream(list1));
 		System.out.println("Using Stream: " + _02_Using_Stream(list2));
+
+		System.out.println("Using Set: " + _03_Using_Set(list1));
+		System.out.println("Using Set: " + _03_Using_Set(list2));
+
 	}
 
 	private static boolean _01_Using_BruteForceApproach(List<Integer> list) {
@@ -37,6 +41,13 @@ public class _105_All_Elements_In_List_Are_Unique {
 		// Time complexity: O(n)
 		// Space complexity: O(n)
 		return list.stream().distinct().count() == list.size();
+	}
+
+	private static boolean _03_Using_Set(List<Integer> list) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		HashSet<Integer> hs = new HashSet<>(list);
+		return hs.size() == list.size();
 	}
 
 }
