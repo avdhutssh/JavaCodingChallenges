@@ -25,6 +25,8 @@ public class _105_All_Elements_In_List_Are_Unique {
 		System.out.println("Using HashMap: " + _04_Using_Map(list1));
 		System.out.println("Using HashMap: " + _04_Using_Map(list2));
 
+		System.out.println("Using Sorting: " + _05_Using_Sorting(list1));
+		System.out.println("Using Sorting: " + _05_Using_Sorting(list2));
 	}
 
 	private static boolean _01_Using_BruteForceApproach(List<Integer> list) {
@@ -66,4 +68,15 @@ public class _105_All_Elements_In_List_Are_Unique {
 		return true;
 	}
 
+	private static boolean _05_Using_Sorting(List<Integer> list) {
+		// Time complexity: O(nlogn)
+		// Space complexity: O(1)
+		Collections.sort(list);
+		for (int i = 0; i < list.size() - 1; i++) {
+			if (list.get(i) == list.get(i + 1)) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
