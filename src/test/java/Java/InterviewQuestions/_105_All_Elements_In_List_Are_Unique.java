@@ -22,6 +22,9 @@ public class _105_All_Elements_In_List_Are_Unique {
 		System.out.println("Using Set: " + _03_Using_Set(list1));
 		System.out.println("Using Set: " + _03_Using_Set(list2));
 
+		System.out.println("Using HashMap: " + _04_Using_Map(list1));
+		System.out.println("Using HashMap: " + _04_Using_Map(list2));
+
 	}
 
 	private static boolean _01_Using_BruteForceApproach(List<Integer> list) {
@@ -48,6 +51,19 @@ public class _105_All_Elements_In_List_Are_Unique {
 		// Space complexity: O(n)
 		HashSet<Integer> hs = new HashSet<>(list);
 		return hs.size() == list.size();
+	}
+
+	private static boolean _04_Using_Map(List<Integer> list) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		Map<Integer, Integer> hs = new HashMap<>();
+		for (Integer ele : list) {
+			if (hs.containsKey(ele)) {
+				return false;
+			}
+			hs.put(ele, 1);
+		}
+		return true;
 	}
 
 }
