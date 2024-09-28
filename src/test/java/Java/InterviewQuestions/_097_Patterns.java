@@ -36,8 +36,8 @@ public class _097_Patterns {
 //		pattern21(5);
 //		pattern22(5);
 //		pattern23(5);   
-		pattern24(5);
-
+//		pattern24(5);
+		pattern25(5);
 //		pattern26(6);
 
 	}
@@ -356,19 +356,36 @@ public class _097_Patterns {
 
 	private static void pattern24(int n) {
 		for (int row = 1; row <= 2 * n; row++) {
-			int numStar = (row <= n) ? row : (2 * n - row+1);
-			int numSpace = (row <= n) ? n - row : row - n-1;
-			
+			int numStar = (row <= n) ? row : (2 * n - row + 1);
+			int numSpace = (row <= n) ? n - row : row - n - 1;
+
 			for (int col = 1; col <= numStar; col++) {
 				System.out.print((col == 1 || col == numStar) ? "*" : " ");
 			}
-			
+
 			for (int space = 1; space <= 2 * numSpace; space++) {
 				System.out.print(" ");
 			}
-			
+
 			for (int col = 1; col <= numStar; col++) {
 				System.out.print((col == 1 || col == numStar) ? "*" : " ");
+			}
+			System.out.println();
+		}
+	}
+
+	private static void pattern25(int n) {
+		for (int row = 1; row <= n; row++) {
+			for (int startSpace = 1; startSpace <= n - row; startSpace++) {
+				System.out.print(" ");
+			}
+			for (int col = 1; col <= n; col++) {
+				if (row == 1 || row == n || col == 1 || col == n) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+
 			}
 			System.out.println();
 		}
