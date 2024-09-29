@@ -37,8 +37,9 @@ public class _097_Patterns {
 //		pattern22(5);
 //		pattern23(5);   
 //		pattern24(5);
-		pattern25(5);
+//		pattern25(5);
 //		pattern26(6);
+		pattern27(4);
 
 	}
 
@@ -398,6 +399,29 @@ public class _097_Patterns {
 			}
 			System.out.println();
 		}
+	}
 
+	private static void pattern27(int n) {
+		int num = 1;
+		int numEnd = n * (n + 1) / 2; // Calculate the last number
+
+		for (int row = 1; row <= n; row++) {
+			// Print leading spaces
+			for (int space = 1; space < row; space++) {
+				System.out.print("  ");
+			}
+
+			// Print first half of the row
+			for (int col = 1; col <= n - row + 1; col++) {
+				System.out.print(num++ + " ");
+			}
+
+			// Print second half of the row
+			for (int col = 1; col <= n - row + 1; col++) {
+				System.out.print(numEnd-- + " ");
+			}
+
+			System.out.println();
+		}
 	}
 }
