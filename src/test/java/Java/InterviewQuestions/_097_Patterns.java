@@ -402,26 +402,29 @@ public class _097_Patterns {
 	}
 
 	private static void pattern27(int n) {
-		int num = 1;
-		int numEnd = n * (n + 1) / 2; // Calculate the last number
+		int firsthalf = 1;
+		int secondhalf = (n * n) + 1;
+		int numOfSpaces = 0;
+		for (int row = n; row >= 1; row--) {
 
-		for (int row = 1; row <= n; row++) {
-			// Print leading spaces
-			for (int space = 1; space < row; space++) {
-				System.out.print("  ");
+			for (int space = numOfSpaces; space >= 1; space--) {
+				System.out.print(" ");
 			}
 
-			// Print first half of the row
-			for (int col = 1; col <= n - row + 1; col++) {
-				System.out.print(num++ + " ");
+			for (int firstHalfCounter = 1; firstHalfCounter <= row; firstHalfCounter++) {
+					System.out.print((firsthalf++) + " ");
 			}
 
-			// Print second half of the row
-			for (int col = 1; col <= n - row + 1; col++) {
-				System.out.print(numEnd-- + " ");
-			}
+			for (int secondHalfCounter = 1; secondHalfCounter <= row; secondHalfCounter++) {
+				if (secondhalf == ((n*(n+1))/2)+1)
+					System.out.print((secondhalf++));
+				else
+					System.out.print(" " + (secondhalf++));
 
+			}
 			System.out.println();
+			numOfSpaces += 2;
+			secondhalf = (secondhalf - 1) - ((row - 1) * 2);
 		}
 	}
 }
