@@ -16,6 +16,7 @@ public class _108_Read_Text_File {
 
 		_01_CountFileStatistics_Using_Buffered_Reader(filePath);
 		_02_CountFileStatistics_Using_Scanner(filePath);
+		_03_CountFileStatistics_File_ReadAllLines(filePath);
 
 	}
 
@@ -93,4 +94,40 @@ public class _108_Read_Text_File {
 		System.out.println("Total Paragraphs: " + paragraphCount);
 	}
 
+	private static void _03_CountFileStatistics_File_ReadAllLines(String filePath) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+		String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		System.out.println("\n" + methodName);
+
+		try {
+			List<String> lines = Files.readAllLines(Paths.get(filePath));
+			int lineCount = lines.size();
+			int wordCount = 0;
+			int charCount = 0;
+			int paragraphCount = 0;
+			boolean inParagraphCount = false;
+			for (String line : lines) {
+				if (!line.trim().isEmpty()) {
+					if (!inParagraphCount) {
+						paragraphCount++;
+						inParagraphCount = true;
+					}
+					String[] words = line.split("\\s+");
+					wordCount += words.length;
+				} else {
+					inParagraphCount = false;
+				}
+				charCount += line.length();
+			}
+
+			System.out.println("Total Lines: " + lineCount);
+			System.out.println("Total Words: " + wordCount);
+			System.out.println("Total Characters (without new lines): " + charCount);
+			System.out.println("Total Paragraphs: " + paragraphCount);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
