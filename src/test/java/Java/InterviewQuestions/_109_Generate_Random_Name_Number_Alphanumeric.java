@@ -1,8 +1,11 @@
 package Java.InterviewQuestions;
 
+import com.github.javafaker.Faker;
+
 public class _109_Generate_Random_Name_Number_Alphanumeric {
 
 	private static java.util.Random random = new java.util.Random();
+	static Faker faker = new Faker();
 
 	public static void main(String[] args) {
 
@@ -11,6 +14,10 @@ public class _109_Generate_Random_Name_Number_Alphanumeric {
 		System.out.println(_01_Generate_random_Using_RegX(4, "Alphanumeric"));
 		System.out.println(_01_Generate_random_Using_RegX(8, "any"));
 
+		System.out.println(_02_Generate_random_UsingJavaFaker("name"));
+		System.out.println(_02_Generate_random_UsingJavaFaker("Number"));
+		System.out.println(_02_Generate_random_UsingJavaFaker("Alphanumeric"));
+		System.out.println(_02_Generate_random_UsingJavaFaker("any"));
 	}
 
 	private static String _01_Generate_random_Using_RegX(int length, String type) {
@@ -49,4 +56,25 @@ public class _109_Generate_Random_Name_Number_Alphanumeric {
 		return sb.toString();
 	}
 
+	private static String _02_Generate_random_UsingJavaFaker(String type) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+
+		String result = "";
+		switch (type.toLowerCase()) {
+		case "name":
+			result = faker.name().username();
+			break;
+		case "number":
+			result = faker.number().digit();
+			break;
+		case "alphanumeric":
+			result = faker.lorem().characters(6,true,true);
+			break;
+		default:
+			result = faker.name().fullName() + faker.lorem().characters(6,false,true);
+		}
+
+		return result;
+	}
 }
