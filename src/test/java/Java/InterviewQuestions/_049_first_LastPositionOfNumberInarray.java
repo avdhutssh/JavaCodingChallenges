@@ -1,7 +1,6 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
-import java.util.Iterator;
 
 public class _049_first_LastPositionOfNumberInarray {
 

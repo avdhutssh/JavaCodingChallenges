@@ -1,7 +1,6 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class _107_Uppercase_First_Letter_Of_Each_Word {

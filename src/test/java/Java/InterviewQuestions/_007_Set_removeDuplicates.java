@@ -20,8 +20,7 @@ public class _007_Set_removeDuplicates {
 		for (int i = 0; i < elements.size(); i++) {
 			hs.add(elements.get(i));
 		}
-		List<Integer> unique = new ArrayList<Integer>(hs);
-		return unique;
+		return new ArrayList<Integer>(hs);
 	}
 
 	static List<Integer> _02_Using_SetBasedFilteringWithDirectConversion(List<Integer> elements) {

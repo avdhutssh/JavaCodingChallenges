@@ -1,7 +1,5 @@
 package Java.InterviewQuestions;
 
-import java.util.Arrays;
-
 public class _103_Swap_First_Last_Letter_String {
 
 	public static void main(String[] args) {

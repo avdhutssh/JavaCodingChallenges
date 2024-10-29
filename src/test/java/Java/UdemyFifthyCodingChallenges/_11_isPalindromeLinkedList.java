@@ -1,8 +1,5 @@
 package Java.UdemyFifthyCodingChallenges;
 
-import Java.UdemyFifthyCodingChallenges._09_reverseLinkedList.LinkedList;
-import Java.UdemyFifthyCodingChallenges._09_reverseLinkedList.Node;
-
 public class _11_isPalindromeLinkedList {
 	static class Node {
 		int data;

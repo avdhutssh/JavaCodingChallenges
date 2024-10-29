@@ -10,9 +10,7 @@ public class _099_Third_Largest_Number_In_Array {
 	public static void main(String[] args) {
 		int[] arr1 = { 2, 100, 10, 100, 5, 10, 11, 5, 11, 2 }; // 10
 		int[] arr2 = { 2, 100, 10, 50, 300 }; // 50
-		int[] arr3 = { 2, 100, 10, 100, 5, 10, 11, 5, 11, 2 }; // 10
-		int[] arr4 = { 2, 100, 10, 50, 300 }; // 50
-
+		
 		System.out.println("Using Linear Scan: " + _01_Using_Linear_Scan(arr1));
 		System.out.println("Using Linear Scan: " + _01_Using_Linear_Scan(arr2));
 

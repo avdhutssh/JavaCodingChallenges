@@ -1,6 +1,5 @@
 package Java.InterviewQuestions;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class _113_SecondHighestInHashMap {

@@ -1,7 +1,6 @@
 package Java.InterviewQuestions;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class _114_mostFreqentNumberInArray {
 	public static void main(String[] args) {

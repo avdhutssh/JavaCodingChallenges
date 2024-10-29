@@ -2,7 +2,6 @@ package Java.InterviewQuestions;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class _008_Set_hasUniqueChars {

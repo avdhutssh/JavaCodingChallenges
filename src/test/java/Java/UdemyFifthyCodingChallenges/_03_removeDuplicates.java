@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.TreeSet;
 import java.util.stream.IntStream;
 
-import org.apache.pdfbox.pdfparser.BruteForceParser;
-
 public class _03_removeDuplicates {
 
 	public static void main(String... args) {
