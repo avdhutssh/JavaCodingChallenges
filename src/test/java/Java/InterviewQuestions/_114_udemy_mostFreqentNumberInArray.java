@@ -2,7 +2,7 @@ package Java.InterviewQuestions;
 
 import java.util.HashMap;
 
-public class _114_mostFreqentNumberInArray {
+public class _114_udemy_mostFreqentNumberInArray {
 	public static void main(String[] args) {
 		int[] array1 = { 1, 3, 1, 3, 2, 1 }; // 1
 		int[] array2 = { 3, 3, 1, 3, 2, 1 }; // 3
@@ -17,12 +17,12 @@ public class _114_mostFreqentNumberInArray {
 
 	}
 
-	public static int _01_Using_HashMap(int[] givenArray) {
+	public static Integer _01_Using_HashMap(int[] givenArray) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
 
 		if (givenArray.length == 0) {
-			return 0;
+			return null;
 		}
 		HashMap<Integer, Integer> hm = new HashMap<>();
 		for (int num : givenArray) {
