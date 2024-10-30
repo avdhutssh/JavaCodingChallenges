@@ -14,6 +14,14 @@ public class _114_udemy_mostFreqentNumberInArray {
 		System.out.println("arr3: " + _01_Using_HashMap(array3));
 		System.out.println("arr4: " + _01_Using_HashMap(array4));
 		System.out.println("arr5: " + _01_Using_HashMap(array5));
+		
+		System.out.println("---------------------------------------");
+		
+		System.out.println("arr1: " + _02_Optimize(array1));
+		System.out.println("arr2: " + _02_Optimize(array2));
+		System.out.println("arr3: " + _02_Optimize(array3));
+		System.out.println("arr4: " + _02_Optimize(array4));
+		System.out.println("arr5: " + _02_Optimize(array5));
 
 	}
 
@@ -37,6 +45,24 @@ public class _114_udemy_mostFreqentNumberInArray {
 				maxItem = key;
 			}
 		}
+		return maxItem;
+	}
+
+	public static Integer _02_Optimize(int[] givenArray) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		
+		Integer maxCount =-1;
+		Integer maxItem = null;
+		HashMap<Integer, Integer> hm = new HashMap<>();
+		for (int num : givenArray) {
+			hm.put(num, hm.getOrDefault(num, 1) + 1);
+			if(hm.get(num)>maxCount) {
+				maxCount = hm.get(num);
+				maxItem = num;
+			}
+		}
+		
 		return maxItem;
 	}
 }
