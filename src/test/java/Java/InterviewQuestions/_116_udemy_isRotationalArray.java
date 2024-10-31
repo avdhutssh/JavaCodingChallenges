@@ -24,6 +24,15 @@ public class _116_udemy_isRotationalArray {
 		System.out.println(_01_ConcatenateApproach(array1, array2e));
 		System.out.println(_01_ConcatenateApproach(array1, array2f));
 
+		System.out.println("----------------------------------------");
+
+		System.out.println(_02_Optimize(array1, array2a));
+		System.out.println(_02_Optimize(array1, array2b));
+		System.out.println(_02_Optimize(array1, array2c));
+		System.out.println(_02_Optimize(array1, array2d));
+		System.out.println(_02_Optimize(array1, array2e));
+		System.out.println(_02_Optimize(array1, array2f));
+
 	}
 
 	private static boolean _01_ConcatenateApproach(int[] arr1, int[] arr2) {
@@ -46,6 +55,33 @@ public class _116_udemy_isRotationalArray {
 			sb.append(num).append(",");
 		}
 		return sb.toString();
+	}
+
+	private static boolean _02_Optimize(int[] arr1, int[] arr2) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+
+		if (arr1.length != arr2.length)
+			return false;
+
+		int keyLock = -1;
+		for (int i = 0; i < arr2.length; i++) {
+			if (arr2[i] == arr1[0]) {
+				keyLock = i;
+				break;
+			}
+		}
+
+		if (keyLock == -1)
+			return false;
+
+		for (int i = 0; i < arr1.length; i++) {
+			int j = (keyLock + i) % arr1.length;
+			if (arr1[i] != arr2[j])
+				return false;
+		}
+
+		return true;
 	}
 
 }
