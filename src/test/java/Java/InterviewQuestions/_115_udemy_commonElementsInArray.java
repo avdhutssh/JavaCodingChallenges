@@ -23,6 +23,12 @@ public class _115_udemy_commonElementsInArray {
 		System.out.println(Arrays.toString(_01_Using_HashSet(array1B, array2B)));
 		System.out.println(Arrays.toString(_01_Using_HashSet(array1C, array2C)));
 
+		System.out.println("---------------------------------------");
+
+		System.out.println(Arrays.toString(_02_Optimize(array1A, array2A)));
+		System.out.println(Arrays.toString(_02_Optimize(array1B, array2B)));
+		System.out.println(Arrays.toString(_02_Optimize(array1C, array2C)));
+
 	}
 
 	private static Integer[] _01_Using_HashSet(int[] array1, int[] array2) {
@@ -43,4 +49,25 @@ public class _115_udemy_commonElementsInArray {
 
 	}
 
+	private static Integer[] _02_Optimize(int[] array1, int[] array2) {
+		// Time Complexity: O(n+m)
+		// Space Complexity: O(min(n,m))
+		ArrayList<Integer> al = new ArrayList<>();
+		int left = 0;
+		int right = 0;
+		while (left < array1.length && right < array2.length) {
+			if (array1[left] < array2[right]) {
+				left++;
+			} else if (array1[left] > array2[right]) {
+				right++;
+			} else {
+				al.add(array1[left]);
+				left++;
+				right++;
+			}
+		}
+		Integer[] resultInArray = new Integer[al.size()];
+		return al.toArray(resultInArray);
+
+	}
 }
