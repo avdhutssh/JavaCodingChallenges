@@ -59,7 +59,7 @@ public class _116_udemy_isRotationalArray {
 
 	private static boolean _02_Optimize(int[] arr1, int[] arr2) {
 		// Time Complexity: O(n)
-		// Space Complexity: O(n)
+		// Space Complexity: O(1)
 
 		if (arr1.length != arr2.length)
 			return false;
