@@ -16,6 +16,9 @@ public class _117_udemy_isOneAway {
 	}
 
 	private static boolean isOneAway(String str1, String str2) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		
 		if (Math.abs(str1.length() - str2.length()) >= 2) {
 			return false;
 		}
@@ -44,13 +47,14 @@ public class _117_udemy_isOneAway {
 
 	private static boolean isOneAwayDiffLength(String str1, String str2) {
 		int countDiff = 0;
-		for (int i = 0; i < str2.length(); i++) {
+		int i = 0;
+		while (i < str2.length()) {
 			if (str1.charAt(i + countDiff) != str2.charAt(i)) {
 				countDiff++;
+			} else {
+				i++;
 			}
-			if (countDiff > 1) {
-				return false;
-			}
+
 		}
 		return true;
 	}
