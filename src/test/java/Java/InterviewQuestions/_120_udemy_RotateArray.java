@@ -36,7 +36,8 @@ public class _120_udemy_RotateArray {
 	}
 
 	private static int[][] rotate_In_Place(int[][] a, int n) {
-
+		// Time complexity: O(n^2)
+		// Space complexity: O(1)
 		for (int i = 0; i < Math.ceil(n / 2.0); i++) {
 			for (int j = 0; j < Math.floor(n / 2.0); j++) {
 				int[] temp = new int[4];
