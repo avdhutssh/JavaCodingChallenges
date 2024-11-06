@@ -37,6 +37,15 @@ public class _121_udemy_nthFromLastLinkedList {
 			System.out.println(nthFromLast(head2, 4)); // should return 1.
 			System.out.println(nthFromLast(head2, 5)); // should return null.
 			System.out.println(nthFromLast(null, 1)); // should return null.
+
+			System.out.println("--------------------------------------------");
+
+			System.out.println(nthFromLast_UsingTwoPassApproach(head, 1)); // should return 1.
+			System.out.println(nthFromLast_UsingTwoPassApproach(head, 5)); // should return 5.
+			System.out.println(nthFromLast_UsingTwoPassApproach(head2, 2)); // should return 3.
+			System.out.println(nthFromLast_UsingTwoPassApproach(head2, 4)); // should return 1.
+			System.out.println(nthFromLast_UsingTwoPassApproach(head2, 5)); // should return null.
+			System.out.println(nthFromLast_UsingTwoPassApproach(null, 1)); // should return null.
 		}
 	}
 
@@ -57,6 +66,30 @@ public class _121_udemy_nthFromLastLinkedList {
 			right = right.child;
 		}
 		return left;
+
+	}
+
+	public static Node nthFromLast_UsingTwoPassApproach(Node head, int n) {
+		// Time complexity: O(L) -> L = length of linked list
+		// Space complexity: O(1)
+		Node current = head;
+		int length = 0;
+		
+		while (current != null) {
+			length++;
+			current = current.child;
+		}
+
+		if (n > length)
+			return null;
+
+		int targetIndex = length - n;
+		current = head;
+		for (int i = 0; i < targetIndex; i++) {
+			current = current.child;
+		}
+
+		return current;
 
 	}
 
