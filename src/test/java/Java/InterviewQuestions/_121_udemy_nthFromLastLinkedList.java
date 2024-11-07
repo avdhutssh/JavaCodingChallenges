@@ -70,7 +70,7 @@ public class _121_udemy_nthFromLastLinkedList {
 	}
 
 	public static Node nthFromLast_UsingTwoPassApproach(Node head, int n) {
-		// Time complexity: O(L) -> L = length of linked list
+		// Time complexity: O(L)
 		// Space complexity: O(1)
 		Node current = head;
 		int length = 0;
