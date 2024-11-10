@@ -92,6 +92,8 @@ public class _122_udemy_isBinarySearchTree {
 
     // Implement your function below.
     public static boolean isBST(TreeNode node) {
+		// Time complexity: O(n)
+		// Space complexity: O(h)  -> h = height of tree
         return isBstHelper(node, null, null);
     }
 
