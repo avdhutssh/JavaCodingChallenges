@@ -18,6 +18,12 @@ public class _124_Sort_Array_Of_0s_1s_2s {
 		System.out.println(Arrays.toString(_02_Using_Three_Way_Partitioning(arr3)));
 		System.out.println(Arrays.toString(_02_Using_Three_Way_Partitioning(arr4)));
 
+		int[] arr5 = { 2, 0, 0, 1, 0, 2, 1 }; // [0, 0, 0, 1, 1, 2, 2]
+		int[] arr6 = { 0, 1, 0, 2, 1, 1, 0, 2, 2, 0, 1 }; // [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2]
+
+		System.out.println(Arrays.toString(_03_Using_Three_Way_Partitioning_Switch_Case(arr5)));
+		System.out.println(Arrays.toString(_03_Using_Three_Way_Partitioning_Switch_Case(arr6)));
+
 	}
 
 	private static int[] _01_UsingBruteForceApproach(int[] arr) {
@@ -79,4 +85,31 @@ public class _124_Sort_Array_Of_0s_1s_2s {
 		arr[low] = temp;
 
 	}
+
+	public static int[] _03_Using_Three_Way_Partitioning_Switch_Case(int[] arr) { // Dutch National Flag Algorithm
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		System.out.print("Using Three Way Partitioning with Switch case: ");
+		int low = 0;
+		int mid = 0;
+		int high = arr.length - 1;
+		while (mid <= high) {
+			switch (arr[mid]) {
+			case 0:
+				swapArr(arr, mid, low);
+				low++;
+				mid++;
+				break;
+			case 1:
+				mid++;
+				break;
+			case 2:
+				swapArr(arr, mid, high);
+				high--;
+				break;
+			}
+		}
+		return arr;
+	}
+
 }
