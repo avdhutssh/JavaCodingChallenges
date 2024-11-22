@@ -10,6 +10,13 @@ public class _128_RotateArrayTo_N_Position {
 		System.out.println(Arrays.toString(_01_UsingBruteForceApproach(arr1, 5))); // {5,4,1,8,3,6}
 		System.out.println(Arrays.toString(_01_UsingBruteForceApproach(arr1, 6))); // {4,1,8,3,6,5}
 		System.out.println(Arrays.toString(_01_UsingBruteForceApproach(arr1, 7))); // null
+		
+		
+		int[] arr2 = { 4, 1, 8, 3, 6, 5 };
+		System.out.println(Arrays.toString(_02_UsingInPlaceApproach(arr2, 2))); // {8,3,6,5,4,1}
+		System.out.println(Arrays.toString(_02_UsingInPlaceApproach(arr2, 5))); // {5,4,1,8,3,6}
+		System.out.println(Arrays.toString(_02_UsingInPlaceApproach(arr2, 6))); // {4,1,8,3,6,5}
+		System.out.println(Arrays.toString(_02_UsingInPlaceApproach(arr2, 7))); // null
 	}
 
 	private static int[] _01_UsingBruteForceApproach(int[] arr, int position) {
@@ -26,6 +33,17 @@ public class _128_RotateArrayTo_N_Position {
 			rotated[index++] = arr[i];
 		}
 		return rotated;
+	}
+
+	
+	private static int[] _02_UsingInPlaceApproach(int[] arr, int position) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		if (position > arr.length)
+			return null;
+		int[] rotated = new int[arr.length];
+		return arr;
+		
 	}
 
 }
