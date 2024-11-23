@@ -1,6 +1,9 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class _128_RotateArrayTo_N_Position {
 
@@ -11,10 +14,19 @@ public class _128_RotateArrayTo_N_Position {
 		System.out.println(Arrays.toString(_01_UsingBruteForceApproach(arr1, 6))); // {4,1,8,3,6,5}
 		System.out.println(Arrays.toString(_01_UsingBruteForceApproach(arr1, 7))); // null
 
+		System.out.println("----------------------------------");
+
 		System.out.println(Arrays.toString(_02_UsingInPlaceApproach(new int[] { 4, 1, 8, 3, 6, 5 }, 2))); // {8,3,6,5,4,1}
 		System.out.println(Arrays.toString(_02_UsingInPlaceApproach(new int[] { 4, 1, 8, 3, 6, 5 }, 5))); // {5,4,1,8,3,6}
 		System.out.println(Arrays.toString(_02_UsingInPlaceApproach(new int[] { 4, 1, 8, 3, 6, 5 }, 6))); // {4,1,8,3,6,5}
 		System.out.println(Arrays.toString(_02_UsingInPlaceApproach(new int[] { 4, 1, 8, 3, 6, 5 }, 7))); // null
+
+		System.out.println("----------------------------------");
+
+		System.out.println(_03_UsingCollections(new int[] { 4, 1, 8, 3, 6, 5 }, 2)); // {8,3,6,5,4,1}
+		System.out.println(_03_UsingCollections(new int[] { 4, 1, 8, 3, 6, 5 }, 5)); // {5,4,1,8,3,6}
+		System.out.println(_03_UsingCollections(new int[] { 4, 1, 8, 3, 6, 5 }, 6)); // {4,1,8,3,6,5}
+		System.out.println(_03_UsingCollections(new int[] { 4, 1, 8, 3, 6, 5 }, 7)); // null
 	}
 
 	private static int[] _01_UsingBruteForceApproach(int[] arr, int position) {
@@ -62,4 +74,14 @@ public class _128_RotateArrayTo_N_Position {
 
 	}
 
-}
+	private static List<Integer> _03_UsingCollections(int[] arr, int position) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		if (position > arr.length)
+			return null;
+		List<Integer> al = Arrays.stream(arr).boxed().collect(Collectors.toList());
+		Collections.rotate(al, -position);
+		return al;
+	}
+
+	
