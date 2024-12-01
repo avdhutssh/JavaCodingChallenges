@@ -18,6 +18,12 @@ public class _131_Masked_Last_4_Letters {
 		System.out.println(_02_masked_Using_SubString_Method("avdhutcool")); // avdhut####
 		System.out.println(_02_masked_Using_SubString_Method("avdhut")); // av####
 
+		System.out.println(_03_masked_Using_RegX("")); // empty
+		System.out.println(_03_masked_Using_RegX(null)); // empty
+		System.out.println(_03_masked_Using_RegX("av")); // av
+		System.out.println(_03_masked_Using_RegX("abcd")); // abcd
+		System.out.println(_03_masked_Using_RegX("avdhutcool")); // avdhut####
+		System.out.println(_03_masked_Using_RegX("avdhut")); // av####
 
 	}
 
@@ -68,5 +74,9 @@ public class _131_Masked_Last_4_Letters {
 		return maskedStr.toString();
 	}
 
-
+	private static String _03_masked_Using_RegX(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		return (str == null || str.length() <= 4) ? str : str.substring(0, str.length() - 4) + "####";
+	}
 }
