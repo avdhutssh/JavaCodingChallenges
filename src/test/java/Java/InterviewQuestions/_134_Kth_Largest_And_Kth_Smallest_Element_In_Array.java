@@ -51,7 +51,7 @@ public class _134_Kth_Largest_And_Kth_Smallest_Element_In_Array {
 			arr[index--] = maxHeap.poll();
 		}
 		
-		Arrays.sort(arr);
+		
 		System.out.println("Kth Smallest: " + arr[K] + "\nKth Largest: " + arr[arr.length - K]);
 	}
 
