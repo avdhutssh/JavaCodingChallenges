@@ -35,7 +35,7 @@ public class _134_Kth_Largest_And_Kth_Smallest_Element_In_Array {
 
 	private static void _02_By_Using_Heap_Sorting(int[] arr, int K) {
 		// Time complexity: O(nlog(n))
-		// Space complexity: O(1)
+		// Space complexity: O(n)
 		if (arr.length < K) {
 			System.out.println("Array size is less than K");
 			return;
@@ -50,7 +50,6 @@ public class _134_Kth_Largest_And_Kth_Smallest_Element_In_Array {
 		while(!maxHeap.isEmpty()) {
 			arr[index--] = maxHeap.poll();
 		}
-		
 		
 		System.out.println("Kth Smallest: " + arr[K] + "\nKth Largest: " + arr[arr.length - K]);
 	}
