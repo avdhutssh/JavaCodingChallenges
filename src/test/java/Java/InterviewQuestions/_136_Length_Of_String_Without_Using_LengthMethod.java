@@ -11,6 +11,8 @@ public class _136_Length_Of_String_Without_Using_LengthMethod {
 	}
 
 	private static void _01_Using_For_Each_Loop(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
 		int index = 0;
 		for (char ch : str.toCharArray()) {
 			index++;
