@@ -11,6 +11,7 @@ public class _136_Length_Of_String_Without_Using_LengthMethod {
 		String str = "Avdhut"; // 6
 		_01_Using_For_Each_Loop(str);
 		_02_Using_IndexOutOfBound(str);
+		_03_Using_LastIndexOf(str);
 
 	}
 
@@ -38,5 +39,10 @@ public class _136_Length_Of_String_Without_Using_LengthMethod {
 		System.out.println("Length of String using IndexOutOfBound is: " + index);
 	}
 
+	private static void _03_Using_LastIndexOf(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		System.out.println("Length of String using LastIndexOf method is: " + str.lastIndexOf(""));
+	}
 
 }
