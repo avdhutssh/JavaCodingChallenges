@@ -12,6 +12,7 @@ public class _136_Length_Of_String_Without_Using_LengthMethod {
 		_01_Using_For_Each_Loop(str);
 		_02_Using_IndexOutOfBound(str);
 		_03_Using_LastIndexOf(str);
+		_04_Using_PatternMatcher(str);
 
 	}
 
@@ -45,4 +46,12 @@ public class _136_Length_Of_String_Without_Using_LengthMethod {
 		System.out.println("Length of String using LastIndexOf method is: " + str.lastIndexOf(""));
 	}
 
+	private static void _04_Using_PatternMatcher(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		Matcher matcher = Pattern.compile("$").matcher(str);
+		matcher.find();
+		int length = matcher.end();
+		System.out.println("Length of String using PatternMatcher is: " + length);
+	}
 }
