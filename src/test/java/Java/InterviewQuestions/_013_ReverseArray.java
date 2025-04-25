@@ -59,7 +59,7 @@ public class _013_ReverseArray {
 	
 	private static int[] _04_Using_Two_Pointer_Technique(int[] arr) {
 		// Time complexity: O(n)
-		// Space complexity: O(n)
+		// Space complexity: O(1)
 
 		int left = 0;
 		int right = arr.length - 1;

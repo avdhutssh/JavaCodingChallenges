@@ -1,17 +1,20 @@
 package Java.InterviewQuestions;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class _092_Sum_Of_Three_Numbers_Equal_To_Target {
 
+	// triplets
 	public static void main(String[] args) {
 		int[] arr = { 1, 2, 4, 5, 15, 12 };
 		int target = 21;
 		_01_Using_BruteForceApproach(arr, target);
 		_02_Using_TwoPointerApproach_Sorting(arr, target);
 		_03_Using_HashSet(arr, target);
-
+		_04_Using_HashMap(arr, target);
 	}
 
 	private static void _01_Using_BruteForceApproach(int[] arr, int target) {
@@ -67,6 +70,22 @@ public class _092_Sum_Of_Three_Numbers_Equal_To_Target {
 					System.out.println(arr[i] + " " + arr[j] + " " + (currentSum - arr[j]));
 				}
 				hs.add(arr[j]);
+			}
+		}
+	}
+
+	private static void _04_Using_HashMap(int[] arr, int target) {
+		// Time Complexity: O(n^2)
+		// Space Complexity: O(n)
+		System.out.println("Using HashMap: ");
+		Map<Integer, Integer> hm = new HashMap<>();
+		for (int i = 0; i < arr.length; i++) {
+			hm.put(arr[i], i);
+			for (int j = i + 1; j < arr.length; j++) {
+				int remainingNum = target - (arr[i] + arr[j]);
+				if (hm.containsKey(remainingNum)) {
+					System.out.println(arr[i] + " " + arr[j] + " " + remainingNum);
+				}
 			}
 		}
 	}

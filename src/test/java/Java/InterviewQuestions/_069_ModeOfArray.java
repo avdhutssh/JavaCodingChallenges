@@ -11,7 +11,7 @@ public class _069_ModeOfArray {
 //		The mode of an array is the value that appears most frequently in the array. 
 //		If multiple values have the same highest frequency, then each of those values can be considered a mode
 
-		int[] nums = { 1, 2, 2, 3, 4, 4, 4, 5, 5 }; // Example array
+		int[] nums = { 1, 2, 2, 3, 4, 4, 4, 5, 5, 5 }; // 4,5
 
 		System.out.println("The mode(s) of the array Using HM: " + _01_Using_HashMap(nums));
 	}
