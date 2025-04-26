@@ -17,7 +17,7 @@ public class _003_isPalindromeNumber {
 	private static boolean _01_IsPalindrome_ByReversingHalf(int x) {
 		// Time complexity: O(log x)
 		// Space complexity: O(1)
-		if (x <= 0 || (x != 0 && x % 10 == 0)) {
+		if (x < 0 || (x != 0 && x % 10 == 0)) {
 			return false;
 		}
 		int reverseHalf = 0;
