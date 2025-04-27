@@ -37,6 +37,7 @@ public class _008_MoveZeroes {
 		// Time Complexity: O(n)
 		// Space Complexity: O(1)
 
+		if(nums.length == 1) return;
 		int index = 0;
 		for (int num : nums) {
 			if (num != 0) {
