@@ -29,13 +29,13 @@ public class _007_TwoSum {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
 
-		HashMap<Integer, Integer> hs = new HashMap<>();
+		HashMap<Integer, Integer> hm = new HashMap<>();
 		for (int i = 0; i < nums.length; i++) {
 			int complement = target - nums[i];
-			if (hs.containsKey(complement)) {
-				return new int[] { hs.get(complement), i };
+			if (hm.containsKey(complement)) {
+				return new int[] { hm.get(complement), i };
 			} else {
-				hs.put(nums[i], i);
+				hm.put(nums[i], i);
 			}
 		}
 		throw new IllegalArgumentException("No two sum solution");
