@@ -11,9 +11,9 @@ public class _012_LengthOfLastWord {
 		System.out.println(_01_lengthOfLastWord_Optimized(" ")); // 0
 		System.out.println(_01_lengthOfLastWord_Optimized("Today is a nice day ")); // 3
 		System.out.println(_01_lengthOfLastWord_Optimized("day")); // 3
-		
+
 		System.out.println("---------------------------------");
-		
+
 		System.out.println(_02_lengthOfLastWord_Optimized("Hello World")); // 5
 		System.out.println(_02_lengthOfLastWord_Optimized("   fly me   to   the moon  ")); // 4
 		System.out.println(_02_lengthOfLastWord_Optimized("luffy is still joyboy")); // 6
@@ -21,6 +21,9 @@ public class _012_LengthOfLastWord {
 		System.out.println(_02_lengthOfLastWord_Optimized(" ")); // 0
 		System.out.println(_02_lengthOfLastWord_Optimized("Today is a nice day ")); // 3
 		System.out.println(_02_lengthOfLastWord_Optimized("day")); // 3
+
+		System.out.println("---------------------------------");
+		System.out.println(_03_lengthOfLastWord_UsingArray("   fly me   to   the moon  ")); // 4
 	}
 
 	public static int _01_lengthOfLastWord_Optimized(String s) {
@@ -54,4 +57,13 @@ public class _012_LengthOfLastWord {
 
 		return count;
 	}
+
+	private static int _03_lengthOfLastWord_UsingArray(String str) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		
+		String[] strArr = str.trim().split("\\s+");
+		return strArr[strArr.length - 1].length();
+	}
+
 }
