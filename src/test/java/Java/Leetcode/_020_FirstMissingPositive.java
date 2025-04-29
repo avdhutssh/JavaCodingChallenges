@@ -13,6 +13,9 @@ public class _020_FirstMissingPositive {
 	}
 
 	public static int firstMissingPositive(int[] nums) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] <= 0) {
 				nums[i] = nums.length + 1;
