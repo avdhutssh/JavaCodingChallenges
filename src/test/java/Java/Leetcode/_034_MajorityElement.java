@@ -2,6 +2,7 @@ package Java.Leetcode;
 
 public class _034_MajorityElement {
 
+//	Boyer-Moore Voting Algorithm
 	public static void main(String[] args) {
 		// Edge case 1: Single element
 		int[] nums1 = { 3 };
