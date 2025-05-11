@@ -26,6 +26,9 @@ public class _034_MajorityElement {
 	}
 
 	public static int majorityElement(int[] nums) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		
 		int count = 0;
 		int majorityElement = 0;
 
