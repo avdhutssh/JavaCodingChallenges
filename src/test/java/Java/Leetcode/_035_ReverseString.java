@@ -21,6 +21,9 @@ public class _035_ReverseString {
 	}
 
 	public static char[] reverseString(char[] arr) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+		
 		int left = 0;
 		int right = arr.length - 1;
 		while (left < right) {
