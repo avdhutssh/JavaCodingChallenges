@@ -14,6 +14,18 @@ public class _039_LongestPalindromeSubstring {
 		System.out.println(_01_longestPalindrome_UsingExpandAroundCentre("abcda")); // Output: "a"
 		System.out.println(_01_longestPalindrome_UsingExpandAroundCentre("aaaa")); // Output: "aaaa"
 		System.out.println(_01_longestPalindrome_UsingExpandAroundCentre("abcbaefgfe")); // Output: "efgfe"
+
+		System.out.println("\n----- BFA Solution -----");
+		System.out.println(_02_longestPalindrome_UsingBFA("babad")); // Output: "bab" or "aba"
+		System.out.println(_02_longestPalindrome_UsingBFA("cbbd")); // Output: "bb"
+		System.out.println(_02_longestPalindrome_UsingBFA("a")); // Output: "a"
+		System.out.println(_02_longestPalindrome_UsingBFA("ac")); // Output: "a" or "c"
+		System.out.println(_02_longestPalindrome_UsingBFA("")); // Output: ""
+		System.out.println(_02_longestPalindrome_UsingBFA("racecar")); // Output: "racecar"
+		System.out.println(_02_longestPalindrome_UsingBFA("abccba")); // Output: "abccba"
+		System.out.println(_02_longestPalindrome_UsingBFA("abcda")); // Output: "a"
+		System.out.println(_02_longestPalindrome_UsingBFA("aaaa")); // Output: "aaaa"
+		System.out.println(_02_longestPalindrome_UsingBFA("abcbaefgfe")); // Output: "efgfe"
 	}
 
 	public static String _01_longestPalindrome_UsingExpandAroundCentre(String s) {
@@ -22,7 +34,7 @@ public class _039_LongestPalindromeSubstring {
 
 		if (s.isEmpty())
 			return "";
-		
+
 		int start = 0;
 		int end = 0;
 
@@ -45,5 +57,42 @@ public class _039_LongestPalindromeSubstring {
 			R++;
 		}
 		return R - L - 1;
+	}
+
+	public static String _02_longestPalindrome_UsingBFA(String s) {
+		// Time Complexity: O(n^3)
+		// Space Complexity: O(1)
+
+		if (s == null || s.isEmpty())
+			return "";
+
+		if (s.length() == 1)
+			return s;
+
+		String longest = s.substring(0, 1);
+		for (int i = 0; i < s.length(); i++) {
+			for (int j = i + 1; j < s.length(); j++) {
+				String current = s.substring(i,j);
+				if(isPalindrome(current) && current.length() > longest.length() ) {
+					longest = current;
+				}
+			}
+
+		}
+		return longest;
+	}
+
+	private static boolean isPalindrome(String s) {
+		int left = 0;
+		int right = s.length()-1;
+		while(left<right) {
+			if(s.charAt(left)!=s.charAt(right)) {
+				return false;
+			}
+			left++;
+			right--;
+		}
+		return true;
+
 	}
 }
