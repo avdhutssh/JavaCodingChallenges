@@ -14,13 +14,22 @@ public class _038_ValidAnagram {
 		System.out.println(_01_isAnagram_Using_HM("abc", "abcd")); // false
 
 		System.out.println("--------------------------------------------");
-		
+
 		System.out.println(_02_isAnagram_Using_FrequencyArray("anagram", "nagaram")); // true
 		System.out.println(_02_isAnagram_Using_FrequencyArray("rat", "car")); // false
 		System.out.println(_02_isAnagram_Using_FrequencyArray("a", "a")); // true
 		System.out.println(_02_isAnagram_Using_FrequencyArray("ab", "ba")); // true
 		System.out.println(_02_isAnagram_Using_FrequencyArray("", "")); // true
 		System.out.println(_02_isAnagram_Using_FrequencyArray("abc", "abcd")); // false
+
+		System.out.println("--------------------------------------------");
+
+		System.out.println(_03_isAnagram_Using_FrequencyArrayOptimized("anagram", "nagaram")); // true
+		System.out.println(_03_isAnagram_Using_FrequencyArrayOptimized("rat", "car")); // false
+		System.out.println(_03_isAnagram_Using_FrequencyArrayOptimized("a", "a")); // true
+		System.out.println(_03_isAnagram_Using_FrequencyArrayOptimized("ab", "ba")); // true
+		System.out.println(_03_isAnagram_Using_FrequencyArrayOptimized("", "")); // true
+		System.out.println(_03_isAnagram_Using_FrequencyArrayOptimized("abc", "abcd")); // false
 
 	}
 
@@ -72,4 +81,23 @@ public class _038_ValidAnagram {
 		return true;
 	}
 
+	private static boolean _03_isAnagram_Using_FrequencyArrayOptimized(String s, String t) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(1)
+
+		if (s.length() != t.length())
+			return false;
+
+		int[] counter = new int[26];
+		for (int i = 0; i < s.length(); i++) {
+			counter[s.charAt(i) - 'a']++;
+		}
+		for (int i = 0; i < t.length(); i++) {
+			counter[t.charAt(i) - 'a']--;
+			if (counter[t.charAt(i) - 'a'] < 0) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
