@@ -25,7 +25,7 @@ public class _039_LongestPalindromeSubstring {
 		System.out.println(_02_longestPalindrome_UsingBFA("abccba")); // Output: "abccba"
 		System.out.println(_02_longestPalindrome_UsingBFA("abcda")); // Output: "a"
 		System.out.println(_02_longestPalindrome_UsingBFA("aaaa")); // Output: "aaaa"
-		System.out.println(_02_longestPalindrome_UsingBFA("abcbaefgfe")); // Output: "efgfe"
+		System.out.println(_02_longestPalindrome_UsingBFA("abcbaefgfe")); // Output: "efgfe" or "abcba"
 	}
 
 	public static String _01_longestPalindrome_UsingExpandAroundCentre(String s) {
