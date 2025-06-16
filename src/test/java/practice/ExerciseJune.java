@@ -30,6 +30,8 @@ public class ExerciseJune {
 		System.out.println(_05_missingNumber(missingNumArr)); // 4
 
 		System.out.println("-----------------------------------------");
+
+		System.out.println(_06_firstNonRepeatingChar("leetcode")); // l
 	}
 
 	private static int _01_multiply(int num1, int num2) {
@@ -91,6 +93,23 @@ public class ExerciseJune {
 		int expectedSum = totalNum * (totalNum + 1) / 2;
 		return expectedSum - actualSum;
 
+	}
+
+	private static Character _06_firstNonRepeatingChar(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+
+		int[] counts = new int[128];
+		for (char ch : str.toCharArray()) {
+			counts[ch - 'a']++;
+		}
+		for (char ch : str.toCharArray()) {
+			if (counts[ch - 'a'] == 1) {
+				return ch;
+			}
+		}
+
+		return '\0';
 	}
 
 }
