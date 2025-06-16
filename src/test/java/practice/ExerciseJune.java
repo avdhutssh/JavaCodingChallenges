@@ -21,6 +21,10 @@ public class ExerciseJune {
 		_03_compareArrayAndFindCommon(a, b); // 4 7
 
 		System.out.println("\n-----------------------------------------");
+
+		System.out.println(_04_factorial(5)); // 120
+
+		System.out.println("-----------------------------------------");
 	}
 
 	private static int _01_multiply(int num1, int num2) {
@@ -58,4 +62,15 @@ public class ExerciseJune {
 
 	}
 
+	private static int _04_factorial(int num) {
+		// Time complexity: O(num)
+		// Space complexity: O(1)
+
+		int k = 1, factorial = 1;
+		while (k <= num) {
+			factorial *= k;
+			k++;
+		}
+		return factorial;
+	}
 }
