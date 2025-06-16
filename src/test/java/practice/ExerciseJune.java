@@ -1,6 +1,10 @@
 package practice;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.stream.IntStream;
 
 public class ExerciseJune {
@@ -32,6 +36,19 @@ public class ExerciseJune {
 		System.out.println("-----------------------------------------");
 
 		System.out.println(_06_firstNonRepeatingChar("leetcode")); // l
+
+		System.out.println("-----------------------------------------");
+
+		System.out.println(_07_Using_Hashmap_groupAnagrams(new String[] { "eat", "tea", "tan", "ate", "nat", "bat" }));
+		// [[eat, tea, ate], [tan, nat], [bat]]
+		System.out.println(_07_Using_Hashmap_groupAnagrams(new String[] { "abc", "cba", "bac", "foo", "bar" }));
+		// [[abc, cba, bac], [foo], [bar]]
+		System.out.println(_07_Using_Hashmap_groupAnagrams(
+				new String[] { "listen", "silent", "triangle", "integral", "garden", "ranged" }));
+		// [[listen, silent], [triangle, integral], [garden, ranged]]
+
+		System.out.println("-----------------------------------------");
+
 	}
 
 	private static int _01_multiply(int num1, int num2) {
@@ -110,6 +127,26 @@ public class ExerciseJune {
 		}
 
 		return '\0';
+	}
+
+	private static ArrayList<List<String>> _07_Using_Hashmap_groupAnagrams(String[] arr) {
+		// Time complexity: O(NKlogK)
+		// Space complexity: O(NK)
+		HashMap<String, List<String>> hm = new HashMap<>();
+		for (String str : arr) {
+			char[] charArr = str.toCharArray();
+			Arrays.sort(charArr);
+			String sortedStr = new String(charArr);
+			if (hm.containsKey(sortedStr)) {
+				hm.get(sortedStr).add(str);
+			} else {
+				List<String> anagramGroups = new ArrayList<String>();
+				anagramGroups.add(str);
+				hm.put(sortedStr, anagramGroups);
+			}
+
+		}
+		return new ArrayList<List<String>>(hm.values());
 	}
 
 }
