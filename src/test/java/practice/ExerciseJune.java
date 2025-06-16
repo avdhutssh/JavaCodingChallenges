@@ -25,6 +25,11 @@ public class ExerciseJune {
 		System.out.println(_04_factorial(5)); // 120
 
 		System.out.println("-----------------------------------------");
+
+		int[] missingNumArr = new int[] { 1, 2, 5, 6, 7, 3 };
+		System.out.println(_05_missingNumber(missingNumArr)); // 4
+
+		System.out.println("-----------------------------------------");
 	}
 
 	private static int _01_multiply(int num1, int num2) {
@@ -73,4 +78,19 @@ public class ExerciseJune {
 		}
 		return factorial;
 	}
+
+	private static int _05_missingNumber(int[] numbers) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+
+		int actualSum = 0;
+		for (int num : numbers) {
+			actualSum += num;
+		}
+		int totalNum = numbers.length + 1;
+		int expectedSum = totalNum * (totalNum + 1) / 2;
+		return expectedSum - actualSum;
+
+	}
+
 }
