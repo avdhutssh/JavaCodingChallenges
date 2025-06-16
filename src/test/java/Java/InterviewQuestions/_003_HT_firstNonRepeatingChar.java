@@ -19,6 +19,10 @@ public class _003_HT_firstNonRepeatingChar {
 		System.out.println(_02_Using_HashMap(str2)); // h
 		System.out.println(_02_Using_HashMap(str3)); // null
 		System.out.println("---------------------------------");
+
+		System.out.println(_03_Using_FrequencyArray(str1)); // l
+		System.out.println(_03_Using_FrequencyArray(str2)); // h
+		System.out.println(_03_Using_FrequencyArray(str3)); // null
 	}
 
 	private static Character _01_BruteForceApproach(String str) {
@@ -49,6 +53,23 @@ public class _003_HT_firstNonRepeatingChar {
 		for(char ch : str.toCharArray()) {
 			if(hm.get(ch)==1) return ch;
 		}
+		return '\0';
+	}
+
+		private static Character _03_Using_FrequencyArray(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+
+		int[] counts = new int[128];
+		for (char ch : str.toCharArray()) {
+			counts[ch - 'a']++;
+		}
+		for (char ch : str.toCharArray()) {
+			if (counts[ch - 'a'] == 1) {
+				return ch;
+			}
+		}
+
 		return '\0';
 	}
 	
