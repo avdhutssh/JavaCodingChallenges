@@ -1,7 +1,6 @@
 package Java.Leetcode;
 
 public class _041_ReverseWordsInString {
-
 	public static void main(String[] args) {
 		System.out.println("--- Using In-Place Approach ---");
 		System.out.println(_01_reverseWords_Optimized_InPlaceApporach("the sky is blue")); // "blue is sky the"
@@ -13,6 +12,17 @@ public class _041_ReverseWordsInString {
 		System.out.println(_01_reverseWords_Optimized_InPlaceApporach("   ")); // ""
 		System.out.println(_01_reverseWords_Optimized_InPlaceApporach("1 2 3 4 5")); // "5 4 3 2 1"
 		System.out.println(_01_reverseWords_Optimized_InPlaceApporach("a")); // "a"
+
+		System.out.println("\n--- Using Brute Force Approach ---");
+		System.out.println(_02_reverseWords_BFA("the sky is blue")); // "blue is sky the"
+		System.out.println(_02_reverseWords_BFA("  hello world  ")); // "world hello"
+		System.out.println(_02_reverseWords_BFA("a good   example")); // "example good a"
+		System.out.println(_02_reverseWords_BFA("  Bob    Loves  Alice  ")); // "Alice Loves Bob"
+		System.out.println(_02_reverseWords_BFA("Alice")); // "Alice"
+		System.out.println(_02_reverseWords_BFA("")); // ""
+		System.out.println(_02_reverseWords_BFA("   ")); // ""
+		System.out.println(_02_reverseWords_BFA("1 2 3 4 5")); // "5 4 3 2 1"
+		System.out.println(_02_reverseWords_BFA("a")); // "a"
 	}
 
 	public static String _01_reverseWords_Optimized_InPlaceApporach(String s) {
@@ -72,5 +82,24 @@ public class _041_ReverseWordsInString {
 			}
 		}
 		return new String(charArr).substring(0, left);
+	}
+
+	public static String _02_reverseWords_BFA(String s) {
+		// Time Complexity: O(n)
+		// Space Complexity: O(n)
+		if (s == null || s.isEmpty()) {
+			return s;
+		}
+
+		String[] words = s.trim().split("\\s+");
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < words.length; i++) {
+			if (i == words.length - 1) {
+				sb.append(words[words.length-1-i]);
+			} else {
+				sb.append(words[words.length-1-i]).append(" ");
+			}
+		}
+		return sb.toString();
 	}
 }
