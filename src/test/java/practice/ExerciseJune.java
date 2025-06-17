@@ -85,12 +85,42 @@ public class ExerciseJune {
 
 		System.out.println("-----------------------------------------");
 
+		String str1 = "abcdefg"; // should return true
+		String str2 = "hello"; // should return false
+		String str3 = ""; // should return true
+		String str4 = "0123456789"; // should return true
+		String str5 = "abacadaeaf"; // should return false
+		System.out.println(_10_hasUniqueOptimized(str1));
+		System.out.println(_10_hasUniqueOptimized(str2));
+		System.out.println(_10_hasUniqueOptimized(str3));
+		System.out.println(_10_hasUniqueOptimized(str4));
+		System.out.println(_10_hasUniqueOptimized(str5));
+		
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
 
 		System.out.println("-----------------------------------------");
 
+	}
+
+	private static boolean _10_hasUniqueOptimized(String str) {
+		// Time complexity: O(n)
+		// Space complexity: O(1)
+		
+		if (str.length() == 0)
+			return true;
+		if (str.length() > 128)
+			return false;
+
+		boolean[] seen = new boolean[128];
+		for (int i = 0; i < str.length(); i++) {
+			if (seen[str.charAt(i)]) {
+				return false;
+			}
+			seen[str.charAt(i)] = true;
+		}
+		return true;
 	}
 
 	private static int _01_multiply(int num1, int num2) {
