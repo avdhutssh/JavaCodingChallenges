@@ -49,6 +49,27 @@ public class ExerciseJune {
 
 		System.out.println("-----------------------------------------");
 
+		System.out.println(
+				Arrays.toString(_08_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 2, 7, 11, 15 }, 9)));
+// [0, 1]
+		System.out.println(Arrays.toString(_08_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 2, 4 }, 6)));
+// [1, 2]
+		System.out.println(Arrays.toString(_08_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 3, 3 }, 6)));
+// [0, 1]
+		System.out.println(
+				Arrays.toString(_08_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 10)));
+// []
+		System.out.println(
+				Arrays.toString(_08_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 7)));
+// [2, 3]
+		System.out.println(
+				Arrays.toString(_08_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] { 1, 2, 3, 4, 5 }, 3)));
+// [0, 1]
+		System.out.println(Arrays.toString(_08_HashMap_indicesOfTwoNumbersThatGivesTarget(new int[] {}, 0)));
+// []
+
+		System.out.println("-----------------------------------------");
+
 	}
 
 	private static int _01_multiply(int num1, int num2) {
@@ -147,6 +168,19 @@ public class ExerciseJune {
 
 		}
 		return new ArrayList<List<String>>(hm.values());
+	}
+
+	private static int[] _08_HashMap_indicesOfTwoNumbersThatGivesTarget(int[] arr, int target) {
+
+		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+		for (int i = 0; i < arr.length; i++) {
+			int otherNum = target - arr[i];
+			if (hm.containsKey(otherNum)) {
+				return new int[] { hm.get(otherNum), i };
+			}
+			hm.put(arr[i], i);
+		}
+		return new int[] {};
 	}
 
 }
