@@ -69,6 +69,27 @@ public class ExerciseJune {
 // []
 
 		System.out.println("-----------------------------------------");
+		int[] nums1 = { 1, 2, 3, 4, 5 }, nums2 = { -1, 2, 3, -4, 5 }, nums3 = { 2, 3, 4, 5, 6 }, nums4 = {};
+		int target1 = 9, target2 = 0, target3 = 3, target4 = 0;
+
+		Arrays.stream(_009_HT_SubarraySumIndex(nums1, target1)).forEach(value -> System.out.print(value + " ")); // [1,
+																													// 3]
+		System.out.println();
+		Arrays.stream(_009_HT_SubarraySumIndex(nums2, target2)).forEach(value -> System.out.print(value + " ")); // [0,
+																													// 3]
+		System.out.println();
+		Arrays.stream(_009_HT_SubarraySumIndex(nums3, target3)).forEach(value -> System.out.print(value + " ")); // [1,
+																													// 1]
+		System.out.println();
+		Arrays.stream(_009_HT_SubarraySumIndex(nums4, target4)).forEach(value -> System.out.print(value + " ")); // []
+
+		System.out.println("-----------------------------------------");
+
+		System.out.println("-----------------------------------------");
+
+		System.out.println("-----------------------------------------");
+
+		System.out.println("-----------------------------------------");
 
 	}
 
@@ -171,6 +192,8 @@ public class ExerciseJune {
 	}
 
 	private static int[] _08_HashMap_indicesOfTwoNumbersThatGivesTarget(int[] arr, int target) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
 
 		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
 		for (int i = 0; i < arr.length; i++) {
@@ -179,6 +202,24 @@ public class ExerciseJune {
 				return new int[] { hm.get(otherNum), i };
 			}
 			hm.put(arr[i], i);
+		}
+		return new int[] {};
+	}
+
+	private static int[] _009_HT_SubarraySumIndex(int[] arr, int target) {
+		// Time complexity: O(n)
+		// Space complexity: O(n)
+
+		HashMap<Integer, Integer> hm = new HashMap<>();
+		int sum = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+			sum += arr[i];
+			hm.put(0, -1);
+			if (hm.containsKey(sum - target)) {
+				return new int[] { hm.get(sum - target) + 1, i };
+			}
+			hm.put(sum, i);
 		}
 		return new int[] {};
 	}
