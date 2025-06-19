@@ -16,7 +16,7 @@ public class _016_smallest_LargestElementArray {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
 		int smallest = arr[0];
-		int largest = 0;
+		int largest = Integer.MIN_VALUE;
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] > largest)
 				largest = arr[i];

@@ -21,7 +21,7 @@ public class _086_Number_Palindrome {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
 		int reverseNum = ReverseNum_Using_BFA(num);
-		return (reverseNum == num) ? true : false;
+		return reverseNum == num;
 	}
 
 	private static boolean _02_Using_String_Reversal(int num) {

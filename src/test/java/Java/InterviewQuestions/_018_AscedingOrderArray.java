@@ -79,7 +79,7 @@ public class _018_AscedingOrderArray {
 
 	static int[] _05_Using_Heap_Sort(int[] arr) {
 		// Time complexity: O(nlogn)
-		// Space complexity: O(1)
+		// Space complexity: O(n)
 		PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
 		for (Integer num : arr) {
 			maxHeap.add(num);

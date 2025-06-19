@@ -12,19 +12,21 @@ public class _084_Replace_SubString_With_Other_String {
 		System.out.println("Using indexOf method: " + _04_Using_IndexOf_Method(str1, toBeReplaced, toReplacedWith));
 
 	}
+
 	private static String _01_Using_Array(String str, String toBeReplaced, String toReplacedWith) {
 		// Time Complexity: O(n+k)
 		// Space Complexity: O(n)
 		String[] strArr = str.split(toBeReplaced);
-		String result = "";
-		for (int i = 0; i <= strArr.length - 1; i++) {
-			String st = strArr[i];
-			result += st;
-			if (i != strArr.length - 1) {
-				result += toReplacedWith;
-			}
-		}
-		return result;
+		StringBuilder result = new StringBuilder();
+		result.append(strArr[0]).append(toReplacedWith).append(strArr[1]);
+//		for (int i = 0; i <= strArr.length - 1; i++) {
+//			String st = strArr[i];
+//			result += st;
+//			if (i != strArr.length - 1) {
+//				result += toReplacedWith;
+//			}
+//		}
+		return result.toString();
 	}
 
 	private static String _02_Using_Replace(String str, String target, String replacement) {

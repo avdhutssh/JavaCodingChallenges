@@ -21,7 +21,7 @@ public class _025_countNumberOfWordsInString {
 	private static int _01_Using_Split_Array(String str) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
-		String[] words = str.trim().split(" ");
+		String[] words = str.trim().split("\\s+");
 		return words.length;
 	}
 
@@ -64,11 +64,10 @@ public class _025_countNumberOfWordsInString {
 
 		return count;
 	}
-	
+
 	private static long _05_Using_Stream(String str) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
-
 
 		return Arrays.stream(str.trim().split("\\s+")).count();
 	}

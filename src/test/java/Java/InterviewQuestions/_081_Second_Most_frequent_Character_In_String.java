@@ -72,7 +72,7 @@ public class _081_Second_Most_frequent_Character_In_String {
 
 	private static char _03_Using_Two_Passes_Array(String str) {
 		// Time Complexity: O(n)
-		// Space Complexity: O(n)
+		// Space Complexity: O(1)
 		int[] charCount = new int[256];
 		for (char c : str.toCharArray()) {
 			charCount[c]++;

@@ -15,16 +15,16 @@ public class _014_largestElementArray {
 		System.out.println(_02_Using_BruteForceApproach(arr));
 
 		System.out.println(_03_Using_Stream(arr));
-		
+
 		System.out.println(_04_Using_Priority_Queue(arr));
-		
+
 		System.out.println(_05_Using_Tree_Set(arr));
 	}
 
 	static int _01_Using_Linear_Scan(int[] arr) {
 		// Time complexity: O(n)
 		// Space complexity: O(1)
-		int largestElement = 0;
+		int largestElement = Integer.MIN_VALUE;
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] > largestElement)
 				largestElement = arr[i];
@@ -67,7 +67,7 @@ public class _014_largestElementArray {
 		}
 		return maxHeap.peek();
 	}
-	
+
 	static int _05_Using_Tree_Set(int[] arr) {
 		// Time complexity: O(nlog(n))
 		// Space complexity: O(n)

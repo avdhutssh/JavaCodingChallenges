@@ -2,6 +2,8 @@ package Java.InterviewQuestions;
 
 import java.util.Stack;
 
+import org.apache.commons.lang3.text.StrBuilder;
+
 public class _027_reverseString {
 
 	public static void main(String[] args) {
@@ -33,15 +35,15 @@ public class _027_reverseString {
 	private static String _03_Using_Stack(String str) {
 		// Time Complexity: O(n)
 		// Space Complexity: O(n)
-		String reverseStr = "";
+		StringBuilder reverseStr = new StringBuilder();
 		Stack<Character> st = new Stack<Character>();
 		for (char ch : str.toCharArray()) {
 			st.push(ch);
 		}
 		while (!st.isEmpty()) {
-			reverseStr += st.pop();
+			reverseStr.append(st.pop());
 		}
-		return reverseStr;
+		return reverseStr.toString();
 	}
 
 	private static String _04_Using_Recursion(String str) {
